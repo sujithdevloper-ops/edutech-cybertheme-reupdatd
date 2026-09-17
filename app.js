@@ -323,11 +323,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            requestAnimationFrame(animateWarp);
+            if (isWarpVisible) {
+                warpAnimId = requestAnimationFrame(animateWarp);
+            }
         }
 
-        // Run space warp loop
-        animateWarp();
+        let isWarpVisible = false;
+        let warpAnimId = null;
+
+        const warpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isWarpVisible = entry.isIntersecting;
+                if (isWarpVisible) {
+                    if (!warpAnimId) animateWarp();
+                } else {
+                    if (warpAnimId) {
+                        cancelAnimationFrame(warpAnimId);
+                        warpAnimId = null;
+                    }
+                }
+            });
+        }, { threshold: 0.05 });
+
+        warpObserver.observe(warpCanvas);
     }
 
     // 7. Intersection Observer for Stat Counters Count Up Animation (Odometer Falling Effect)

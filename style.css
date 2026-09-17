@@ -147,9 +147,9 @@ img {
 
 /* Logo image sizing */
 .header-logo-img {
-    height: 36px;
+    height: 47px;
     width: auto;
-    max-width: 180px;
+    max-width: 240px;
     object-fit: contain;
     display: block;
 }
@@ -308,14 +308,16 @@ img {
     overflow: hidden;
 }
 
-.hero-bg-video {
+.hero-bg-video,
+.hero-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 1; /* Fully clear video */
+    opacity: 1; /* Fully clear image/video */
 }
 
 .hero-video-overlay {
