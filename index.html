@@ -94,28 +94,57 @@
         <!-- Interactive 3D Starfield Warp Tunnel Canvas -->
         <canvas id="warpCanvas"></canvas>
 
-        <!-- Premium Volumetric Event Stats Overlay (Scroll-Animated from 0) -->
-        <div class="stats-counter-container" id="statsContainer">
-            <div class="stat-counter-card">
-                <div class="stat-number-wrap">
-                    <span class="stat-number" data-target="80">0</span><span class="stat-suffix">+</span>
+        <div class="warp-section-content">
+            <!-- Premium Volumetric Event Stats Overlay (Scroll-Animated from 0) -->
+            <div class="stats-counter-container" id="statsContainer">
+                <div class="stat-counter-card">
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="100">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <span class="stat-label">Education Leaders</span>
                 </div>
-                <span class="stat-label">Attendees</span>
+
+                <div class="stat-counter-card">
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <span class="stat-label">Expert Speakers</span>
+                </div>
+
+                <div class="stat-counter-card">
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <span class="stat-label">Sessions</span>
+                </div>
+
+                <div class="stat-counter-card">
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="10">0</span>
+                    </div>
+                    <span class="stat-label">Awards</span>
+                </div>
             </div>
 
-            <div class="stat-counter-card">
-                <div class="stat-number-wrap">
-                    <span class="stat-number" data-target="2026">0</span>
-                </div>
-                <span class="stat-label">Edition</span>
+            <!-- CTA Buttons -->
+            <div class="warp-cta-group">
+                <button class="warp-cta-btn primary" id="warpRequestBtn">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>REQUEST INVITATION</span>
+                </button>
+                <a href="#aboutSection" class="warp-cta-btn secondary">
+                    <span>EXPLORE THE SUMMIT</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-        </div>
 
-        <!-- Absolute Bottom-Right Brand Tagline (Exact Match of Reference) -->
-        <div class="warp-corner-text">
-            <p>
-                At <span>Edtech security Summit 2026</span>, we believe in creating a world where machines don't just serve but truly connect with humans, establishing deep cognitive trust.
-            </p>
+            <!-- Animated Glowing Cyber Line -->
+            <div class="animated-cyber-line"></div>
+
+            <!-- Small line underneath -->
+            <div class="warp-corner-text">
+                <p>An exclusive cybersecurity and technology gathering for the education sector.</p>
+            </div>
         </div>
     </section>
 
@@ -124,89 +153,13 @@
         <div class="about-container">
             <div class="about-grid">
                 
-                <!-- Left Column: Content & Dynamic Interactive Tabs -->
+                <!-- Left Column: Content & Overview -->
                 <div class="about-content-col">
-                    <span class="about-tag reveal-element reveal-fade-up">About Edtech security Summit 2026</span>
-                    <h2 class="about-title reveal-element reveal-fade-up">Secure Foundations for<br><span>Next-Gen Education</span></h2>
+                    <span class="about-tag reveal-element reveal-fade-up">EVENT OVERVIEW</span>
+                    <h2 class="about-title reveal-element reveal-fade-up">The Future of Education<br><span>Must Be Secure</span></h2>
                     <p class="about-desc reveal-element reveal-fade-up">
-                        Guardian One Technologies and Sangfor Technologies proudly present Edtech security Summit 2026, unveiling Guardian EdShield — officially powered by Sangfor MDR — designed exclusively for the education sector.
+                        EduTech Cybersecurity Symposium &amp; Awards 2026 brings together education leaders, cybersecurity experts, technology providers and key stakeholders to examine how schools and educational institutions can identify, manage and respond to cyber risk.
                     </p>
-                    
-                    <!-- Dynamic Tabs Navigation -->
-                    <div class="tabs-nav reveal-element reveal-fade-up">
-                        <button class="tab-btn active" data-tab="calendar">
-                            <span class="tab-btn-icon">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                            </span>
-                            Mark Your Calendar
-                        </button>
-                        <button class="tab-btn" data-tab="venue">
-                            <span class="tab-btn-icon">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            </span>
-                            Join Us At
-                        </button>
-                        <button class="tab-btn" data-tab="awaits">
-                            <span class="tab-btn-icon">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                            </span>
-                            What Awaits
-                        </button>
-                    </div>
-                    
-                    <!-- Dynamic Tabs Content Panes -->
-                    <div class="tabs-panes reveal-element reveal-fade-up">
-                        <!-- Tab 1: Calendar -->
-                        <div class="tab-pane active" id="pane-calendar">
-                            <div class="pane-split">
-                                <div class="date-badge">
-                                    <span class="date-month">JUN</span>
-                                    <span class="date-day">24</span>
-                                </div>
-                                <div class="pane-text">
-                                    <h4>Edtech security Summit 2026</h4>
-                                    <p>Save the date and join cybersecurity leaders shaping the future of education security.</p>
-                                    <a href="#" class="tab-cta-btn">
-                                        <span>Add to Calendar</span>
-                                        <svg class="cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tab 2: Venue -->
-                        <div class="tab-pane" id="pane-venue">
-                            <div class="pane-split">
-                                <div class="venue-badge">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                </div>
-                                <div class="pane-text">
-                                    <h4>The Ritz-Carlton, Dubai International Financial Centre</h4>
-                                    <a href="https://maps.app.goo.gl/bBqhW8qwQWGPcPTb8" target="_blank" class="tab-cta-btn">
-                                        <span>Find on Maps</span>
-                                        <svg class="cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tab 3: What Awaits -->
-                        <div class="tab-pane" id="pane-awaits">
-                            <div class="pane-split">
-                                <div class="awaits-badge">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                                </div>
-                                <div class="pane-text">
-                                    <h4>Discover. Engage. Achieve.</h4>
-                                    <p>Live demos, leadership dialogues, and the official launch of Guardian EdShield powered by Sangfor MDR.</p>
-                                    <a href="#" class="tab-cta-btn">
-                                        <span>Explore Agenda</span>
-                                        <svg class="cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- Right Column: Premium Frame with images/about.jpeg -->
@@ -225,6 +178,7 @@
         </div>
     </section>
 
+    <!-- 7. Strategic Conversation & Stakeholder 3D Cards Section -->
     <section class="action-summit-section" id="actionSection">
         <div class="action-sticky-container">
             <!-- Cybernetic Animated Spiral Canvas Background Layer -->
@@ -232,60 +186,149 @@
             
             <div class="action-container">
                 <div class="action-header">
-                    <span class="action-subtitle">Dive Into the Summit</span>
-                    <h2 class="action-title">Where Insight Becomes <span>Action</span></h2>
+                    <span class="action-subtitle">Strategic Conversation</span>
+                    <h2 class="action-title">A Conversation That Goes <span>Beyond Technology</span></h2>
+                    <p class="action-lead">Hear perspectives from key stakeholders shaping the future of education, safety, compliance and digital resilience.</p>
                 </div>
                 
                 <div class="action-cards-grid">
                     <!-- Card 1 -->
                     <div class="action-card">
                         <div class="action-card-icon-wrap">
-                            <span class="action-card-emoji">🚀</span>
+                            <span class="action-card-emoji">🏛️</span>
                         </div>
-                        <h3 class="action-card-title">Official Launch of Guardian EdShield Powered by Sangfor MDR</h3>
-                        <p class="action-card-desc">Gain strategic visibility into today's evolving threat landscape and the role of MDR in redefining how institutions detect, respond to, and manage cyber risk in real time.</p>
+                        <h3 class="action-card-title">KHDA</h3>
+                        <p class="action-card-desc">Knowledge and Human Development Authority — shaping quality education, governance, and institutional standards.</p>
                         <div class="action-card-footer">
-                            <span class="card-tech-tag">MDR Security</span>
+                            <span class="card-tech-tag">Government Authority</span>
                         </div>
                     </div>
 
                     <!-- Card 2 -->
                     <div class="action-card">
                         <div class="action-card-icon-wrap">
-                            <span class="action-card-emoji">🖥</span>
+                            <span class="action-card-emoji">🏫</span>
                         </div>
-                        <h3 class="action-card-title">Live MDR Launch Demonstrations</h3>
-                        <p class="action-card-desc">Witness AI-driven threat detection, continuous monitoring, and automated response designed to minimize risk before operational impact occurs.</p>
+                        <h3 class="action-card-title">Ministry of Education</h3>
+                        <p class="action-card-desc">United Arab Emirates — establishing national digital resilience, safety, and educational frameworks.</p>
                         <div class="action-card-footer">
-                            <span class="card-tech-tag">Live Demo</span>
+                            <span class="card-tech-tag">Federal Ministry</span>
                         </div>
                     </div>
 
                     <!-- Card 3 -->
                     <div class="action-card">
                         <div class="action-card-icon-wrap">
-                            <span class="action-card-emoji">🔒</span>
+                            <span class="action-card-emoji">🛡️</span>
                         </div>
-                        <h3 class="action-card-title">Security Leadership Exchange</h3>
-                        <p class="action-card-desc">Engage in focused discussions with cybersecurity leaders and IT decision-makers on response delays, visibility gaps, and intelligence-led security operations.</p>
+                        <h3 class="action-card-title">Dubai Police</h3>
+                        <p class="action-card-desc">Government of Dubai — safeguarding digital infrastructure, cyber safety, and sector compliance.</p>
                         <div class="action-card-footer">
-                            <span class="card-tech-tag">Leadership</span>
+                            <span class="card-tech-tag">Safety &amp; Compliance</span>
                         </div>
                     </div>
 
                     <!-- Card 4 -->
                     <div class="action-card">
                         <div class="action-card-icon-wrap">
-                            <span class="action-card-emoji">🛡</span>
+                            <span class="action-card-emoji">🎓</span>
                         </div>
-                        <h3 class="action-card-title">Future-Ready Security Dialogue</h3>
-                        <p class="action-card-desc">Explore how institutions can move toward a continuous, MDR-powered security framework enabling faster response and stronger resilience.</p>
+                        <h3 class="action-card-title">Sector Decision-Makers</h3>
+                        <p class="action-card-desc">Education Leaders, School Management, IT &amp; Security Heads, and Technology Compliance Teams.</p>
                         <div class="action-card-footer">
-                            <span class="card-tech-tag">Resilience</span>
+                            <span class="card-tech-tag">Sector Leaders</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Audience / Attendee Pills -->
+                <div class="attendee-pills-wrapper reveal-element reveal-fade-up">
+                    <span class="attendee-badge">IN THE PRESENCE OF &amp; JOINED BY</span>
+                    <div class="attendee-pills-grid">
+                        <span class="attendee-pill"><i class="fas fa-graduation-cap"></i> Education Leaders</span>
+                        <span class="audience-dot">•</span>
+                        <span class="attendee-pill"><i class="fas fa-users-gear"></i> School Management</span>
+                        <span class="audience-dot">•</span>
+                        <span class="attendee-pill"><i class="fas fa-user-shield"></i> IT &amp; Security Leaders</span>
+                        <span class="audience-dot">•</span>
+                        <span class="attendee-pill"><i class="fas fa-clipboard-check"></i> Compliance Teams</span>
+                        <span class="audience-dot">•</span>
+                        <span class="attendee-pill"><i class="fas fa-microchip"></i> Technology Decision-Makers</span>
+                    </div>
+                </div>
+
+    </section>
+
+    <!-- 8. Interactive Event Partners Section -->
+    <section class="event-partners-section" id="eventPartnersSection">
+        <div class="partners-container">
+            <div class="partners-header reveal-element reveal-fade-up">
+                <span class="partners-tag">EVENT PARTNERS</span>
+                <h2 class="partners-title">Powered by <span>Industry Expertise</span></h2>
+                <p class="partners-lead">Collaborating with global cybersecurity and technology pioneers to drive educational resilience.</p>
             </div>
+
+            <!-- Dedicated Partner Ticker Marquee Strip -->
+            <div class="partner-marquee-wrapper reveal-element reveal-fade-up">
+                <div class="partner-marquee-track">
+                    <!-- Track Set 1 -->
+                    <div class="partner-scroll-card featured">
+                        <span class="partner-card-badge">Co-Host</span>
+                        <div class="partner-card-icon"><i class="fas fa-shield-halved"></i></div>
+                        <span class="partner-card-name">Guardian One Technologies</span>
+                    </div>
+                    <div class="partner-scroll-card featured">
+                        <span class="partner-card-badge">MDR Partner</span>
+                        <div class="partner-card-icon"><i class="fas fa-network-wired"></i></div>
+                        <span class="partner-card-name">Sangfor</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-print"></i></div>
+                        <span class="partner-card-name">Epson</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-atom"></i></div>
+                        <span class="partner-card-name">Quantum Edge</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-diagram-project"></i></div>
+                        <span class="partner-card-name">TechBridge Distribution</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-cubes"></i></div>
+                        <span class="partner-card-name">Mindware</span>
+                    </div>
+
+                    <!-- Track Set 2 (Exact Duplicate for Infinite Loop) -->
+                    <div class="partner-scroll-card featured">
+                        <span class="partner-card-badge">Co-Host</span>
+                        <div class="partner-card-icon"><i class="fas fa-shield-halved"></i></div>
+                        <span class="partner-card-name">Guardian One Technologies</span>
+                    </div>
+                    <div class="partner-scroll-card featured">
+                        <span class="partner-card-badge">MDR Partner</span>
+                        <div class="partner-card-icon"><i class="fas fa-network-wired"></i></div>
+                        <span class="partner-card-name">Sangfor</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-print"></i></div>
+                        <span class="partner-card-name">Epson</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-atom"></i></div>
+                        <span class="partner-card-name">Quantum Edge</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-diagram-project"></i></div>
+                        <span class="partner-card-name">TechBridge Distribution</span>
+                    </div>
+                    <div class="partner-scroll-card">
+                        <div class="partner-card-icon"><i class="fas fa-cubes"></i></div>
+                        <span class="partner-card-name">Mindware</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -293,20 +336,24 @@
     <section class="performance-stats-section" id="statsPerformanceSection">
         <div class="performance-container">
             
-            <div class="performance-grid">
-                <!-- Left Column: Heading -->
-                <div class="performance-left-col" style="display: flex; flex-direction: column; justify-content: center;">
-                    <div class="performance-header reveal-element reveal-fade-up" style="align-items: flex-start; text-align: left; margin-bottom: 0;">
-                        <span class="performance-subtitle">Live Experience</span>
-                        <h2 class="performance-title">Sangfor MDR <br><span>Live Experience Zone</span></h2>
-                        <p class="performance-lead" style="margin-left: 0;">Experience next-generation cybersecurity for the education sector</p>
-                    </div>
-                </div>
+            <!-- Section Header -->
+            <div class="experience-header reveal-element reveal-fade-up">
+                <span class="performance-subtitle">LIVE EXPERIENCE / STALLS</span>
+                <h2 class="performance-title">Experience the Technology. <span>Meet the Experts.</span></h2>
+                <h3 class="experience-tagline">The Technology Experience Zone</h3>
+                <p class="performance-lead">
+                    Step beyond the conference room. Meet our technology partners, explore live demonstrations and discover solutions designed to address real challenges across the education environment.<br>
+                    <strong>See the technology. Ask the questions. Explore the possibilities.</strong>
+                </p>
+            </div>
 
-                <!-- Right Column: Visual Frame with live.jpeg (Enlarged) -->
-                <div class="performance-right-col reveal-element reveal-image-mask">
+            <!-- Experience Showcase Grid (Image + 4 Cards Grid) -->
+            <div class="experience-content-grid reveal-element reveal-fade-up">
+                
+                <!-- Left: Live Zone Image Frame -->
+                <div class="experience-image-col">
                     <div class="performance-image-wrapper">
-                        <img src="images/live.jpeg" alt="Sangfor MDR Live Experience Zone" class="performance-img">
+                        <img src="images/live.jpeg" alt="The Technology Experience Zone" class="performance-img">
                         
                         <!-- Futuristic HUD Scanner Overlays -->
                         <div class="scanner-overlay">
@@ -314,39 +361,446 @@
                             <div class="scanner-line"></div>
                             <div class="scanner-glow"></div>
                             <div class="scanner-status-panel">
-                                <span class="scan-alert-icon">⚠️</span>
-                                <span class="scan-alert-text">ANALYZING NETWORK...</span>
+                                <span class="scan-alert-icon">⚡</span>
+                                <span class="scan-alert-text">LIVE TECH SHOWCASE</span>
                             </div>
                         </div>
 
                         <!-- Bottom floating tech label on the image -->
                         <div class="performance-img-tag">
                             <span class="performance-glow-dot"></span>
-                            <span>LIVE DEMO STATION</span>
+                            <span>INTERACTIVE DEMO ZONE</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Right: 4 Smaller Feature Cards -->
+                <div class="experience-cards-grid">
+                    <!-- Card 1 -->
+                    <div class="experience-card">
+                        <div class="experience-card-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="experience-card-body">
+                            <h4 class="experience-card-title">LIVE DEMONSTRATIONS</h4>
+                            <p class="experience-card-desc">See solutions in action.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="experience-card">
+                        <div class="experience-card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="experience-card-body">
+                            <h4 class="experience-card-title">EXPERT INTERACTIONS</h4>
+                            <p class="experience-card-desc">Meet the people behind the technology.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="experience-card">
+                        <div class="experience-card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="experience-card-body">
+                            <h4 class="experience-card-title">REAL-WORLD USE CASES</h4>
+                            <p class="experience-card-desc">Explore how solutions apply to education.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="experience-card">
+                        <div class="experience-card-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <div class="experience-card-body">
+                            <h4 class="experience-card-title">PARTNER SHOWCASE</h4>
+                            <p class="experience-card-desc">Discover technologies across cybersecurity, infrastructure and digital transformation.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            
+
+            <!-- CTA Row -->
+            <div class="experience-cta-wrap reveal-element reveal-fade-up">
+                <a href="#mdrVideoSection" class="experience-cta-btn">
+                    <span>EXPLORE THE EXPERIENCE ZONE</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
         </div>
     </section>
 
-    <!-- MDR Video Experience Section -->
+    <!-- 9. Speakers Section: Meet the Experts Shaping the Conversation -->
+    <section class="speakers-section" id="speakersSection">
+        <div class="speakers-container">
+            <!-- Section Header -->
+            <div class="speakers-header reveal-element reveal-fade-up">
+                <span class="speakers-tag">KEYNOTE &amp; PANELISTS</span>
+                <h2 class="speakers-title">Meet the Experts <span>Shaping the Conversation</span></h2>
+                <p class="speakers-lead">
+                    Different perspectives. One shared priority: building safer, more resilient education environments.
+                </p>
+            </div>
+
+            <!-- Speaker Cards Grid (Demo / Placeholder Cards) -->
+            <div class="speakers-grid reveal-element reveal-fade-up">
+                <!-- Speaker Card 1 -->
+                <div class="speaker-card demo-card">
+                    <div class="speaker-image-frame">
+                        <div class="speaker-avatar-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <span class="speaker-status-badge">Upcoming Speaker</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Speaker Name</h3>
+                        <p class="speaker-designation">Designation / Title</p>
+                        <p class="speaker-org"><i class="fas fa-building-columns"></i> Organisation / Institution</p>
+                    </div>
+                </div>
+
+                <!-- Speaker Card 2 -->
+                <div class="speaker-card demo-card">
+                    <div class="speaker-image-frame">
+                        <div class="speaker-avatar-placeholder">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <span class="speaker-status-badge">Upcoming Speaker</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Speaker Name</h3>
+                        <p class="speaker-designation">Designation / Title</p>
+                        <p class="speaker-org"><i class="fas fa-building-columns"></i> Organisation / Institution</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Action & Coming Soon Tag -->
+            <div class="speakers-footer reveal-element reveal-fade-up">
+                <button class="speakers-cta-btn" id="exploreSpeakersBtn">
+                    <span>EXPLORE THE SPEAKERS</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <p class="speakers-coming-soon"><i class="fas fa-clock"></i> Speaker announcements coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Interactive Event Schedule Section (Left Nav Tabs & Dynamic Right Content) -->
+    <section class="event-schedule-section" id="scheduleSection">
+        <div class="schedule-container">
+            <!-- Section Header -->
+            <div class="schedule-header reveal-element reveal-fade-up">
+                <span class="schedule-tag">PROGRAM &amp; HIGHLIGHTS</span>
+                <h2 class="schedule-title">Event <span>Schedule</span></h2>
+                <p class="schedule-lead">Explore keynote sessions, panel discussions, awards recognition, and live experience zones.</p>
+            </div>
+
+            <!-- Side-by-side Tabbed Layout -->
+            <div class="schedule-tab-layout reveal-element reveal-fade-up">
+                <!-- Left-side Navigation -->
+                <div class="schedule-nav-sidebar">
+                    <button class="schedule-nav-btn active" data-tab="all-topics">
+                        <span class="nav-icon"><i class="fas fa-layer-group"></i></span>
+                        <span class="nav-text">ALL TOPICS</span>
+                        <i class="fas fa-chevron-right nav-arrow"></i>
+                    </button>
+                    <button class="schedule-nav-btn" data-tab="agenda">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span class="nav-text">AGENDA</span>
+                        <i class="fas fa-chevron-right nav-arrow"></i>
+                    </button>
+                    <button class="schedule-nav-btn" data-tab="awards">
+                        <span class="nav-icon"><i class="fas fa-trophy"></i></span>
+                        <span class="nav-text">AWARDS</span>
+                        <i class="fas fa-chevron-right nav-arrow"></i>
+                    </button>
+                    <button class="schedule-nav-btn" data-tab="panel-discussion">
+                        <span class="nav-icon"><i class="fas fa-comments"></i></span>
+                        <span class="nav-text">PANEL DISCUSSION</span>
+                        <i class="fas fa-chevron-right nav-arrow"></i>
+                    </button>
+                </div>
+
+                <!-- Right-side Dynamic Content Panes -->
+                <div class="schedule-content-panes">
+                    
+                    <!-- Pane 1: ALL TOPICS -->
+                    <div class="schedule-pane active" id="pane-all-topics">
+                        <div class="pane-header-box">
+                            <h3 class="pane-title"><i class="fas fa-layer-group"></i> Comprehensive Event Program</h3>
+                            <p class="pane-desc">A packed 1-day symposium featuring thought leadership, interactive panels, technology showcases, and industry awards recognition.</p>
+                        </div>
+
+                        <div class="schedule-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-time">09:00 AM - 10:00 AM</span>
+                                <div class="timeline-content">
+                                    <span class="timeline-badge agenda-badge">Registration &amp; Welcome</span>
+                                    <h4 class="timeline-title">Delegate Check-in &amp; Networking Coffee</h4>
+                                    <p class="timeline-desc">Welcome reception and gathering of education leaders, technology pioneers, and distinguished guests.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <span class="timeline-time">10:00 AM - 11:30 AM</span>
+                                <div class="timeline-content">
+                                    <span class="timeline-badge panel-badge">Panel Discussion</span>
+                                    <h4 class="timeline-title">Navigating Cyber Risks in Next-Gen Education</h4>
+                                    <p class="timeline-desc">Key stakeholders examining institutional vulnerabilities, compliance frameworks, and proactive defense strategies.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <span class="timeline-time">11:30 AM - 01:00 PM</span>
+                                <div class="timeline-content">
+                                    <span class="timeline-badge agenda-badge">Live Demonstration</span>
+                                    <h4 class="timeline-title">MDR Experience Zone Showcase</h4>
+                                    <p class="timeline-desc">Live demonstration of AI-driven threat mitigation and real-world defense scenarios powered by Sangfor MDR.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <span class="timeline-time">02:00 PM - 03:30 PM</span>
+                                <div class="timeline-content">
+                                    <span class="timeline-badge awards-badge">Awards Ceremony</span>
+                                    <h4 class="timeline-title">10 Industry Awards Ceremony</h4>
+                                    <p class="timeline-desc">Recognising institutions, leaders, and technology champions setting high standards across education safety.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pane 2: AGENDA -->
+                    <div class="schedule-pane" id="pane-agenda">
+                        <div class="pane-header-box">
+                            <h3 class="pane-title"><i class="fas fa-calendar-check"></i> Symposium Agenda</h3>
+                            <p class="pane-desc">Detailed session breakdown for October 30, 2026 in Dubai, UAE.</p>
+                        </div>
+
+                        <div class="agenda-list">
+                            <div class="agenda-card">
+                                <div class="agenda-time-box">
+                                    <span class="agenda-time">09:00 AM</span>
+                                    <span class="agenda-duration">60 MIN</span>
+                                </div>
+                                <div class="agenda-details">
+                                    <h4 class="agenda-title">Registration &amp; Morning Networking</h4>
+                                    <p class="agenda-desc">Connect with peers across schools, universities, and government bodies over coffee.</p>
+                                </div>
+                            </div>
+
+                            <div class="agenda-card">
+                                <div class="agenda-time-box">
+                                    <span class="agenda-time">10:00 AM</span>
+                                    <span class="agenda-duration">30 MIN</span>
+                                </div>
+                                <div class="agenda-details">
+                                    <h4 class="agenda-title">Opening Keynote: Secure Foundations for Next-Gen Education</h4>
+                                    <p class="agenda-desc">Opening address laying out the roadmap for educational digital resilience and threat protection.</p>
+                                </div>
+                            </div>
+
+                            <div class="agenda-card">
+                                <div class="agenda-time-box">
+                                    <span class="agenda-time">10:30 AM</span>
+                                    <span class="agenda-duration">60 MIN</span>
+                                </div>
+                                <div class="agenda-details">
+                                    <h4 class="agenda-title">Live Experience Zone: Sangfor MDR Demonstration</h4>
+                                    <p class="agenda-desc">Interactive session testing real-world attack vectors and AI-driven automated responses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pane 3: AWARDS -->
+                    <div class="schedule-pane" id="pane-awards">
+                        <div class="awards-pane-content">
+                            <div class="awards-hero-box">
+                                <div class="awards-trophy-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3 class="awards-main-title">10 Industry Awards</h3>
+                                <p class="awards-main-desc">
+                                    Recognising institutions, professionals and technology-driven achievements across the education sector.
+                                </p>
+                                <button class="awards-cta-btn" id="viewAwardCategoriesBtn">
+                                    <span>VIEW AWARD CATEGORIES</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="awards-grid-preview">
+                                <div class="award-preview-card">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Cyber Resilience Institution of the Year</span>
+                                </div>
+                                <div class="award-preview-card">
+                                    <i class="fas fa-award"></i>
+                                    <span>Education Security Leader Excellence</span>
+                                </div>
+                                <div class="award-preview-card">
+                                    <i class="fas fa-shield-cat"></i>
+                                    <span>Best AI Security Implementation</span>
+                                </div>
+                                <div class="award-preview-card">
+                                    <i class="fas fa-star"></i>
+                                    <span>Digital Innovation in Education</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pane 4: PANEL DISCUSSION -->
+                    <div class="schedule-pane" id="pane-panel-discussion">
+                        <div class="pane-header-box">
+                            <h3 class="pane-title"><i class="fas fa-comments"></i> Strategic Panel Discussions</h3>
+                            <p class="pane-desc">Engaging dialogues with government representatives, school decision-makers, and security leaders.</p>
+                        </div>
+
+                        <div class="panel-cards-wrap">
+                            <div class="panel-topic-card">
+                                <span class="panel-tag">PANEL 1</span>
+                                <h4 class="panel-topic-title">Bridging Governance, Compliance &amp; Educational Technology</h4>
+                                <p class="panel-topic-desc">How regulatory authorities and school boards collaborate to safeguard student data, infrastructure, and institutional privacy.</p>
+                                <div class="panel-speakers-teaser">
+                                    <span><i class="fas fa-users"></i> Featuring Representatives from KHDA, MoE &amp; Dubai Police</span>
+                                </div>
+                            </div>
+
+                            <div class="panel-topic-card">
+                                <span class="panel-tag">PANEL 2</span>
+                                <h4 class="panel-topic-title">Proactive Threat Mitigation: From Reactive Defense to AI Security</h4>
+                                <p class="panel-topic-desc">Evaluating Managed Detection &amp; Response (MDR), Sovereign AI, and Zero Trust architectures across modern campuses.</p>
+                                <div class="panel-speakers-teaser">
+                                    <span><i class="fas fa-user-shield"></i> Featuring Chief Information Security Officers &amp; IT Heads</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Feature Video Section -->
     <section class="mdr-video-section" id="mdrVideoSection">
-        <!-- Background Image -->
-        <img src="images/live.jpeg" alt="Sangfor MDR Live Experience Zone" class="mdr-video-bg" loading="lazy">
+        <!-- Background Video -->
+        <video class="mdr-video-bg" id="mdrVideoBg" muted loop playsinline preload="none" poster="images/live.jpeg">
+            <source src="videos/vi.mp4" type="video/mp4">
+        </video>
 
         <!-- Content -->
         <div class="mdr-video-content reveal-element reveal-fade-up">
+            <span class="awards-section-tag">10 INDUSTRY AWARDS</span>
+            <h2 class="awards-section-title">EduTech Cybersecurity Symposium &amp; Awards 2026</h2>
             <p class="mdr-video-text">
-                Step into the Live MDR Experience Zone at the <strong>Edtech security Summit 2026</strong>. Attendees will witness a fully interactive demonstration of Sangfor's MDR solution — purpose-built for education — featuring AI-driven threat detection, continuous monitoring, and automated response.
+                The awards celebrate the organisations, professionals and technology-driven initiatives making a meaningful difference across the education sector.
             </p>
             <p class="mdr-video-text">
-                Engage directly with the technology, explore real-world attack scenarios, and see how MDR transforms cybersecurity from <em>reactive defense</em> to <em>proactive protection</em> in real time.
+                From stronger cybersecurity practices and digital transformation to innovative technology adoption, these awards spotlight the achievements shaping safer, smarter and more resilient education environments.
             </p>
+            <div class="awards-section-ctas">
+                <a href="#scheduleSection" class="awards-cta-primary">
+                    <span>EXPLORE THE AWARDS</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button class="awards-cta-secondary" id="nominateNowBtn">
+                    <i class="fas fa-trophy"></i>
+                    <span>NOMINATE NOW</span>
+                </button>
+            </div>
         </div>
     </section>
 
+    <!-- 11. WHY ATTEND Section (Uncommon 6-Pillar Interactive Sci-Fi Grid Layout) -->
+    <section class="why-attend-section" id="whyAttendSection">
+        <div class="why-container">
+            <!-- Section Header -->
+            <div class="why-header reveal-element reveal-fade-up">
+                <span class="why-tag">WHY ATTEND</span>
+                <h2 class="why-title">Why Be Part of <span>EduTech Cybersecurity Symposium &amp; Awards 2026?</span></h2>
+                <p class="why-lead">Discover 6 compelling pillars designed to empower education leaders, technology directors, and sector stakeholders.</p>
+            </div>
+
+            <!-- 6-Pillar Interactive Sci-Fi Card Grid -->
+            <div class="why-pillars-grid reveal-element reveal-fade-up">
+                
+                <!-- Pillar 1: Hear -->
+                <div class="why-pillar-card">
+                    <div class="pillar-step-number">01</div>
+                    <div class="pillar-icon-box">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="pillar-action-title">Hear</h3>
+                    <p class="pillar-desc">Learn from cybersecurity, education and technology experts.</p>
+                    <div class="pillar-glow-accent"></div>
+                </div>
+
+                <!-- Pillar 2: Discuss -->
+                <div class="why-pillar-card">
+                    <div class="pillar-step-number">02</div>
+                    <div class="pillar-icon-box">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="pillar-action-title">Discuss</h3>
+                    <p class="pillar-desc">Engage in conversations around the risks education leaders are facing today.</p>
+                    <div class="pillar-glow-accent"></div>
+                </div>
+
+                <!-- Pillar 3: Experience -->
+                <div class="why-pillar-card">
+                    <div class="pillar-step-number">03</div>
+                    <div class="pillar-icon-box">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="pillar-action-title">Experience</h3>
+                    <p class="pillar-desc">Explore live technology demonstrations from industry partners.</p>
+                    <div class="pillar-glow-accent"></div>
+                </div>
+
+                <!-- Pillar 4: Connect -->
+                <div class="why-pillar-card">
+                    <div class="pillar-step-number">04</div>
+                    <div class="pillar-icon-box">
+                        <i class="fas fa-users-viewfinder"></i>
+                    </div>
+                    <h3 class="pillar-action-title">Connect</h3>
+                    <p class="pillar-desc">Meet school leaders, IT decision-makers, technology experts and industry peers.</p>
+                    <div class="pillar-glow-accent"></div>
+                </div>
+
+                <!-- Pillar 5: Discover -->
+                <div class="why-pillar-card">
+                    <div class="pillar-step-number">05</div>
+                    <div class="pillar-icon-box">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 class="pillar-action-title">Discover</h3>
+                    <p class="pillar-desc">Find practical approaches to strengthen cybersecurity and digital resilience.</p>
+                    <div class="pillar-glow-accent"></div>
+                </div>
+
+                <!-- Pillar 6: Celebrate -->
+                <div class="why-pillar-card">
+                    <div class="pillar-step-number">06</div>
+                    <div class="pillar-icon-box">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="pillar-action-title">Celebrate</h3>
+                    <p class="pillar-desc">Recognise outstanding achievements through the EduTech Awards.</p>
+                    <div class="pillar-glow-accent"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section class="ceo-faq-section" id="ceoFaqSection">
         <!-- Dynamic Volumetric Wavy Lines Background Canvas -->
@@ -356,33 +810,24 @@
 
             <!-- Centered Unified Section Header -->
             <div class="combined-section-header reveal-element reveal-fade-up">
-                <span class="combined-section-tag">Leadership Vision</span>
-                <h2 class="combined-section-title">A Message from <span>Our CEO</span></h2>
+                <span class="combined-section-tag">FAQ</span>
+                <h2 class="combined-section-title">Who Owns <span>Cyber Risk?</span></h2>
             </div>
 
             <div class="ceo-faq-grid">
                 
-                <!-- Left Column: CEO Vision & Profile (Center Text) -->
+                <!-- Left Column: Who Owns Cyber Risk in a School Card -->
                 <div class="ceo-column reveal-element reveal-fade-up" style="transition-delay: 0.1s;">
-                    <div class="combined-ceo-card" id="ceoCard">
-                        <div class="combined-ceo-image-wrapper">
-                            <img src="images/ceoo.jpeg" alt="CEO Guardian One" class="combined-ceo-image">
-                            <div class="combined-ceo-image-ring"></div>
+                    <div class="cyber-ownership-card">
+                        <div class="cyber-ownership-icon-wrap">
+                            <i class="fas fa-shield-cat"></i>
                         </div>
-                        
-                        <!-- Premium Vision Reveal CTA Button -->
-                        <button class="ceo-reveal-btn" id="ceoRevealBtn">
-                            <span>Tap to See CEO's Words</span>
-                            <svg class="reveal-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </button>
-                        
-                        <div class="combined-ceo-body">
-                            <span class="combined-ceo-quote-icon">“</span>
-                            <p class="combined-ceo-text" id="ceoQuoteText" data-fulltext='"At Guardian One Technologies, our mission is to empower educational institutions with the ultimate digital resilience. By bridging robust AI-driven cybersecurity with modern academic ecosystems, we aren&apos;t just defending endpoints — we are securing the bright futures of our next generation of leaders."'>
-                                Tap the button above to reveal the CEO's vision.
-                            </p>
-                            <h4 class="combined-ceo-name">Ashith</h4>
-                            <p class="combined-ceo-role">CEO, Guardian One Technologies</p>
+                        <span class="cyber-ownership-tag">KEY QUESTION</span>
+                        <h3 class="cyber-ownership-title">WHO OWNS<br><span>CYBER RISK IN A SCHOOL?</span></h3>
+                        <p class="cyber-ownership-sub">IT? Leadership? Administration? Everyone?</p>
+                        <div class="cyber-ownership-date-pill">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Join the conversation on <strong>30 October 2026</strong>.</span>
                         </div>
                     </div>
                 </div>
@@ -393,7 +838,7 @@
                         <!-- Item 1 -->
                         <div class="faq-item">
                             <button class="faq-trigger" aria-expanded="false">
-                                <span class="faq-question">How does the registration process work?</span>
+                                <span class="faq-question">Who can attend?</span>
                                 <span class="faq-icon-wrap">
                                     <svg class="faq-tick-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -402,7 +847,7 @@
                             </button>
                             <div class="faq-content">
                                 <div class="faq-content-inner">
-                                    <p>Register online, receive confirmation, and access your event dashboard instantly.</p>
+                                    <p>EduTech Cybersecurity Symposium &amp; Awards 2026 is designed exclusively for education-sector professionals, decision-makers, technology leaders and relevant stakeholders.</p>
                                 </div>
                             </div>
                         </div>
@@ -410,7 +855,7 @@
                         <!-- Item 2 -->
                         <div class="faq-item">
                             <button class="faq-trigger" aria-expanded="false">
-                                <span class="faq-question">Where is the main event venue located?</span>
+                                <span class="faq-question">When is the event?</span>
                                 <span class="faq-icon-wrap">
                                     <svg class="faq-tick-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -419,7 +864,7 @@
                             </button>
                             <div class="faq-content">
                                 <div class="faq-content-inner">
-                                    <p>The Ritz-Carlton, Dubai International Financial Centre — a luxury hotel in Dubai, UAE.</p>
+                                    <p>30 October 2026.</p>
                                 </div>
                             </div>
                         </div>
@@ -427,7 +872,7 @@
                         <!-- Item 3 -->
                         <div class="faq-item">
                             <button class="faq-trigger" aria-expanded="false">
-                                <span class="faq-question">Can attendees freely switch between sessions and tracks?</span>
+                                <span class="faq-question">Where is the event?</span>
                                 <span class="faq-icon-wrap">
                                     <svg class="faq-tick-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -436,7 +881,7 @@
                             </button>
                             <div class="faq-content">
                                 <div class="faq-content-inner">
-                                    <p>Our event is designed with flexible scheduling, allowing you to move between halls and select sessions that interest you most.</p>
+                                    <p>Dubai. The venue will be announced shortly.</p>
                                 </div>
                             </div>
                         </div>
@@ -444,7 +889,7 @@
                         <!-- Item 4 -->
                         <div class="faq-item">
                             <button class="faq-trigger" aria-expanded="false">
-                                <span class="faq-question">Does the event provide virtual participation options?</span>
+                                <span class="faq-question">How many people are expected?</span>
                                 <span class="faq-icon-wrap">
                                     <svg class="faq-tick-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -453,7 +898,7 @@
                             </button>
                             <div class="faq-content">
                                 <div class="faq-content-inner">
-                                    <p>Yes, selected sessions will be available through live streaming.</p>
+                                    <p>The symposium is expected to bring together 100+ attendees from across the education ecosystem.</p>
                                 </div>
                             </div>
                         </div>
@@ -461,7 +906,7 @@
                         <!-- Item 5 -->
                         <div class="faq-item">
                             <button class="faq-trigger" aria-expanded="false">
-                                <span class="faq-question">What is the event refund and cancellation policy?</span>
+                                <span class="faq-question">Will there be live technology demonstrations?</span>
                                 <span class="faq-icon-wrap">
                                     <svg class="faq-tick-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -470,7 +915,24 @@
                             </button>
                             <div class="faq-content">
                                 <div class="faq-content-inner">
-                                    <p>Refunds are available up to 7 days before the event.</p>
+                                    <p>Yes. Attendees will have the opportunity to explore technology showcases and live experiences from participating event partners.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 6 -->
+                        <div class="faq-item">
+                            <button class="faq-trigger" aria-expanded="false">
+                                <span class="faq-question">Will the event include awards?</span>
+                                <span class="faq-icon-wrap">
+                                    <svg class="faq-tick-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-content">
+                                <div class="faq-content-inner">
+                                    <p>Yes. The event will feature 10 awards recognising achievements and contributions across the education sector.</p>
                                 </div>
                             </div>
                         </div>

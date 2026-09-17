@@ -179,6 +179,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Warp Section Request Invitation CTA trigger
+    const warpRequestBtn = document.getElementById('warpRequestBtn');
+    if (warpRequestBtn) {
+        warpRequestBtn.addEventListener('click', () => {
+            const reqBtn = document.getElementById('requestInvitationBtn');
+            if (reqBtn) reqBtn.click();
+        });
+    }
+
     // 6. Interactive 3D Cyber-Grid Space Tunnel Canvas (Volumetric Sci-Fi Video Parallax)
     const warpCanvas = document.getElementById('warpCanvas');
     if (warpCanvas) {
@@ -418,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let staggerTimer = null;
         let elementsToReveal = [];
 
-        // Observe the parent containers instead of the translated elements
+        // Observe elements with lower threshold (0.15) for responsive triggering on tall sections
         const revealObserver = new IntersectionObserver((entries) => {
             let newlyIntersecting = [];
 
@@ -447,17 +456,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         elementsToReveal.forEach((el, index) => {
                             setTimeout(() => {
                                 el.classList.add('revealed');
-                            }, index * 120);
+                            }, index * 80);
                         });
                         elementsToReveal = [];
                         staggerTimer = null;
-                    }, 50);
+                    }, 30);
                 }
             }
-        }, { threshold: 0.6 }); // Trigger only when container is 60% visible (completely there)
+        }, { threshold: 0.1 }); // Lower threshold so tall sections trigger immediately when scrolled into view
         
-        // Observe sections and specific containers that might hold heavily translated elements
-        document.querySelectorAll('section, .performance-left-col, .performance-right-col').forEach(container => {
+        // Observe sections, containers, and reveal-elements directly
+        document.querySelectorAll('section, .reveal-element, .performance-left-col, .performance-right-col').forEach(container => {
             revealObserver.observe(container);
         });
     }
@@ -1403,5 +1412,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.05 });
 
         globeObserver.observe(globeCanvas);
+    }
+
+    // Lazy-load MDR section background video on scroll
+    const mdrVideo = document.getElementById('mdrVideoBg');
+    const mdrSection = document.getElementById('mdrVideoSection');
+    if (mdrVideo && mdrSection) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (mdrVideo.paused) {
+                        mdrVideo.play().catch(e => console.log('MDR Video autoplay notice:', e));
+                    }
+                } else {
+                    if (!mdrVideo.paused) {
+                        mdrVideo.pause();
+                    }
+                }
+            });
+        }, { threshold: 0.05 });
+        videoObserver.observe(mdrSection);
+    }
+
+    // Event Schedule Side-Nav Tab Switching
+    const scheduleNavBtns = document.querySelectorAll('.schedule-nav-btn');
+    const schedulePanes = document.querySelectorAll('.schedule-pane');
+
+    if (scheduleNavBtns.length > 0) {
+        scheduleNavBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+
+                // Update active state on buttons
+                scheduleNavBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update active state on content panes
+                schedulePanes.forEach(pane => {
+                    pane.classList.remove('active');
+                    if (pane.id === `pane-${targetTab}`) {
+                        pane.classList.add('active');
+                    }
+                });
+            });
+        });
     }
 });
