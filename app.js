@@ -247,9 +247,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const wCenterX = (warpCanvas.width / 2);
             const wCenterY = (warpCanvas.height / 2);
 
-            // Slightly transparent canvas overlay to build glowing trails
-            const trailAlpha = currentWarpSpeed > 5 ? 0.08 : 0.15;
-            wCtx.fillStyle = `rgba(0, 0, 0, ${trailAlpha})`;
+            // Transparent white canvas overlay to build smooth glowing trails on white background
+            const trailAlpha = currentWarpSpeed > 5 ? 0.15 : 0.3;
+            wCtx.fillStyle = `rgba(255, 255, 255, ${trailAlpha})`;
             wCtx.fillRect(0, 0, warpCanvas.width, warpCanvas.height);
 
             // Interpolate speed smoothly for ultra-premium easing
@@ -263,9 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
             wCtx.beginPath();
             const horizonGlow = 100 + currentWarpSpeed * 4;
             const coreGrad = wCtx.createRadialGradient(wCenterX, wCenterY, 5, wCenterX, wCenterY, horizonGlow * internalScale);
-            coreGrad.addColorStop(0, 'rgba(56, 189, 248, 0.08)');
-            coreGrad.addColorStop(0.5, 'rgba(104, 189, 70, 0.03)');
-            coreGrad.addColorStop(1, 'rgba(0,0,0,0)');
+            coreGrad.addColorStop(0, 'rgba(56, 189, 248, 0.12)');
+            coreGrad.addColorStop(0.5, 'rgba(104, 189, 70, 0.06)');
+            coreGrad.addColorStop(1, 'rgba(255,255,255,0)');
             wCtx.fillStyle = coreGrad;
             wCtx.arc(wCenterX, wCenterY, horizonGlow * internalScale, 0, Math.PI * 2);
             wCtx.fill();
@@ -860,6 +860,102 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.05 });
 
         dotObserver.observe(contactSection);
+    }
+
+    // 12b. FAQ Section Animated Wave & Particle Canvas Engine (#ceoWavyCanvas)
+    const ceoWavyCanvas = document.getElementById('ceoWavyCanvas');
+    const faqSection = document.getElementById('faqSection');
+    if (ceoWavyCanvas && faqSection) {
+        const ctx = ceoWavyCanvas.getContext('2d');
+        let animationFrameId;
+        let t = 0;
+        let isFaqVisible = false;
+
+        function resizeFaqCanvas() {
+            const rect = faqSection.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            ceoWavyCanvas.width = rect.width * dpr;
+            ceoWavyCanvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+        }
+        window.addEventListener('resize', resizeFaqCanvas);
+        resizeFaqCanvas();
+
+        // Particles array for ambient ambient cyber float
+        const particles = Array.from({ length: 35 }, () => ({
+            x: Math.random(),
+            y: Math.random(),
+            radius: 1.5 + Math.random() * 2.5,
+            speedX: (Math.random() - 0.5) * 0.0006,
+            speedY: (Math.random() - 0.5) * 0.0006,
+            alpha: 0.15 + Math.random() * 0.35,
+            color: Math.random() > 0.5 ? 'rgba(54, 184, 86,' : 'rgba(2, 132, 199,'
+        }));
+
+        function drawFaqBackground() {
+            if (!isFaqVisible) return;
+            const width = faqSection.clientWidth;
+            const height = faqSection.clientHeight;
+
+            ctx.clearRect(0, 0, width, height);
+
+            t += 0.008;
+
+            // Flowing animated sine wave network in top right
+            const lines = [
+                { color: 'rgba(54, 184, 86, 0.18)', amp: 35, freq: 0.004, phase: t, yOffset: height * 0.15 },
+                { color: 'rgba(2, 132, 199, 0.15)', amp: 45, freq: 0.003, phase: t * 1.2, yOffset: height * 0.2 },
+                { color: 'rgba(54, 184, 86, 0.12)', amp: 25, freq: 0.005, phase: t * 0.8, yOffset: height * 0.25 },
+                { color: 'rgba(2, 132, 199, 0.10)', amp: 55, freq: 0.002, phase: t * 1.5, yOffset: height * 0.3 }
+            ];
+
+            lines.forEach(line => {
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.lineWidth = 1.5;
+                for (let x = width * 0.15; x <= width + 60; x += 10) {
+                    const y = line.yOffset + Math.sin(x * line.freq + line.phase) * line.amp + Math.cos(x * 0.002 + line.phase) * 15;
+                    if (x === width * 0.15) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+            });
+
+            // Update & draw ambient glowing particles
+            particles.forEach(p => {
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                if (p.x < 0) p.x = 1;
+                if (p.x > 1) p.x = 0;
+                if (p.y < 0) p.y = 1;
+                if (p.y > 1) p.y = 0;
+
+                const px = p.x * width;
+                const py = p.y * height;
+
+                ctx.beginPath();
+                ctx.fillStyle = `${p.color} ${p.alpha})`;
+                ctx.arc(px, py, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            animationFrameId = requestAnimationFrame(drawFaqBackground);
+        }
+
+        const faqObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isFaqVisible = entry.isIntersecting;
+                if (isFaqVisible) {
+                    cancelAnimationFrame(animationFrameId);
+                    drawFaqBackground();
+                } else {
+                    cancelAnimationFrame(animationFrameId);
+                }
+            });
+        }, { threshold: 0.05 });
+
+        faqObserver.observe(faqSection);
     }
 
     // 13. Interactive FAQ Accordion Trigger Handler with Question Fade & Typewriter Answers
