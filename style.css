@@ -1770,71 +1770,132 @@ img {
     font-weight: 400;
 }
 
-/* 4-Column Core Regulatory Pillars Grid */
-.pillars-4col-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 50px;
+/* State-Level Government Crest & Authority Showcase */
+.authority-crest-showcase {
+    max-width: 1280px;
+    margin: 0 auto 60px auto;
+    width: 100%;
 }
 
-.pillar-card {
+.authority-crest-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.emblem-card {
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
-    border-radius: 24px;
-    padding: 30px 24px;
+    border-radius: 28px;
+    padding: 36px 32px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    box-shadow: 0 10px 30px rgba(0, 43, 94, 0.04);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 12px 35px rgba(0, 43, 94, 0.04);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
 }
 
-.pillar-card:hover {
+.emblem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: #002b5e;
+    transition: width 0.3s ease;
+}
+
+.emblem-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(0, 43, 94, 0.1);
+    box-shadow: 0 25px 55px rgba(0, 43, 94, 0.12);
     border-color: #002b5e;
 }
 
-.pillar-card-header {
+.emblem-card:hover::before {
+    width: 8px;
+}
+
+.emblem-top-row {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
-.pillar-card-num {
+.emblem-icon-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    background: rgba(0, 43, 94, 0.05);
+    border: 1.5px solid rgba(0, 43, 94, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #002b5e;
+    box-shadow: 0 6px 18px rgba(0, 43, 94, 0.04);
+    transition: all 0.35s ease;
+}
+
+.emblem-card:hover .emblem-icon-ring {
+    transform: scale(1.1) rotate(4deg);
+}
+
+.emblem-status-tag {
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 30px;
+}
+
+.gold-status { background: rgba(245, 158, 11, 0.1); color: #d97706; border: 1px solid rgba(245, 158, 11, 0.3); }
+.cyan-status { background: rgba(2, 132, 199, 0.1); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.3); }
+.emerald-status { background: rgba(90, 185, 71, 0.1); color: #5ab947; border: 1px solid rgba(90, 185, 71, 0.3); }
+.purple-status { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+
+.emblem-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.emblem-title {
     font-family: var(--font-heading);
     font-size: 26px;
     font-weight: 900;
     color: #002b5e;
-    line-height: 1;
-}
-
-.pillar-card-title {
-    font-family: var(--font-heading);
-    font-size: 22px;
-    font-weight: 800;
-    color: #002b5e;
-    margin: 0 0 12px 0;
+    margin: 0 0 4px 0;
     letter-spacing: -0.5px;
-    line-height: 1.25;
 }
 
-.pillar-card-desc {
+.emblem-subtitle {
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.emblem-desc {
     font-family: var(--font-body);
-    font-size: 14.5px;
+    font-size: 15px;
     color: #475569;
-    line-height: 1.6;
-    margin: 0 0 24px 0;
-    flex-grow: 1;
+    line-height: 1.65;
+    margin: 0;
 }
 
-.pillar-card-footer {
+.emblem-footer-strip {
     width: 100%;
     padding-top: 14px;
     border-top: 1px solid #f1f5f9;
@@ -1844,41 +1905,36 @@ img {
     font-family: var(--font-heading);
     font-size: 12px;
     font-weight: 700;
-    color: #64748b;
+    color: #002b5e;
     margin-top: auto;
 }
 
-.pillar-card-footer i {
+.emblem-footer-strip i {
     color: #5ab947;
     font-size: 14px;
 }
 
-/* Card Color Accents on Hover & Numbering */
-.pillar-card.item-gold:hover { border-color: #f59e0b; }
-.pillar-card.item-gold .pillar-card-num { color: #d97706; }
+/* Specific Emblem Accents */
+.emblem-card.crest-gold::before { background: #f59e0b; }
+.emblem-card.crest-gold:hover .emblem-icon-ring { background: #f59e0b; color: #ffffff; border-color: #f59e0b; }
+.emblem-card.crest-gold:hover { border-color: #f59e0b; }
 
-.pillar-card.item-cyan:hover { border-color: #0284c7; }
-.pillar-card.item-cyan .pillar-card-num { color: #0284c7; }
+.emblem-card.crest-cyan::before { background: #0284c7; }
+.emblem-card.crest-cyan:hover .emblem-icon-ring { background: #0284c7; color: #ffffff; border-color: #0284c7; }
+.emblem-card.crest-cyan:hover { border-color: #0284c7; }
 
-.pillar-card.item-emerald:hover { border-color: #5ab947; }
-.pillar-card.item-emerald .pillar-card-num { color: #5ab947; }
+.emblem-card.crest-emerald::before { background: #5ab947; }
+.emblem-card.crest-emerald:hover .emblem-icon-ring { background: #5ab947; color: #ffffff; border-color: #5ab947; }
+.emblem-card.crest-emerald:hover { border-color: #5ab947; }
 
-.pillar-card.item-purple:hover { border-color: #8b5cf6; }
-.pillar-card.item-purple .pillar-card-num { color: #8b5cf6; }
+.emblem-card.crest-purple::before { background: #8b5cf6; }
+.emblem-card.crest-purple:hover .emblem-icon-ring { background: #8b5cf6; color: #ffffff; border-color: #8b5cf6; }
+.emblem-card.crest-purple:hover { border-color: #8b5cf6; }
 
-@media (max-width: 1199px) {
-    .pillars-4col-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .pillars-4col-grid {
+@media (max-width: 991px) {
+    .authority-crest-grid {
         grid-template-columns: 1fr;
-    }
-    .governance-main-title {
-        font-size: 32px;
+        gap: 20px;
     }
 }
 
