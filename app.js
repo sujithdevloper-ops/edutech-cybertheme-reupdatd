@@ -1530,27 +1530,81 @@ document.addEventListener('DOMContentLoaded', () => {
         videoObserver.observe(mdrSection);
     }
 
-    // Event Schedule Side-Nav Tab Switching
-    const scheduleNavBtns = document.querySelectorAll('.schedule-nav-btn');
+    // Event Schedule Top Pill Capsule Buttons & Popup Modal Controller
+    const schedulePillBtns = document.querySelectorAll('.schedule-pill-btn, .schedule-nav-btn');
     const schedulePanes = document.querySelectorAll('.schedule-pane');
+    const scheduleModalOverlay = document.getElementById('scheduleModalOverlay');
+    const scheduleModalClose = document.getElementById('scheduleModalClose');
 
-    if (scheduleNavBtns.length > 0) {
-        scheduleNavBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
+    if (schedulePillBtns.length > 0) {
+        schedulePillBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
                 const targetTab = btn.getAttribute('data-tab');
 
                 // Update active state on buttons
-                scheduleNavBtns.forEach(b => b.classList.remove('active'));
+                schedulePillBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Update active state on content panes
+                // Update active state on content panes inside modal
                 schedulePanes.forEach(pane => {
                     pane.classList.remove('active');
                     if (pane.id === `pane-${targetTab}`) {
                         pane.classList.add('active');
                     }
                 });
+
+                // Open Popup Modal Overlay
+                if (scheduleModalOverlay) {
+                    scheduleModalOverlay.classList.add('active');
+                    scheduleModalOverlay.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden'; // Lock background scroll
+                }
             });
         });
     }
+
+    // Modal Close Function
+    function closeScheduleModal() {
+        if (scheduleModalOverlay) {
+            scheduleModalOverlay.classList.remove('active');
+            scheduleModalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // Restore background scroll
+        }
+    }
+
+    if (scheduleModalClose) {
+        scheduleModalClose.addEventListener('click', closeScheduleModal);
+    }
+
+    if (scheduleModalOverlay) {
+        scheduleModalOverlay.addEventListener('click', (e) => {
+            if (e.target === scheduleModalOverlay) {
+                closeScheduleModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && scheduleModalOverlay && scheduleModalOverlay.classList.contains('active')) {
+            closeScheduleModal();
+        }
+    });
+
+    // View Award Categories CTA Handler
+    const viewAwardCategoriesBtn = document.getElementById('viewAwardCategoriesBtn');
+    if (viewAwardCategoriesBtn) {
+        viewAwardCategoriesBtn.addEventListener('click', () => {
+            closeScheduleModal();
+            const nominationSection = document.getElementById('nominateSection') || document.getElementById('awardsSection') || document.getElementById('registrationSection');
+            if (nominationSection) {
+                nominationSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const registrationBtn = document.querySelector('.hero-cta-btn, .nav-cta-btn, #requestInvitationBtn');
+                if (registrationBtn) registrationBtn.click();
+            }
+        });
+    }
 });
+
+
