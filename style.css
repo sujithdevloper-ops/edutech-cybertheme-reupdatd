@@ -8121,146 +8121,122 @@ img {
     box-shadow: 0 0 35px rgba(245, 158, 11, 0.35), 0 20px 45px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* Top Pill Filter Capsule Track (Matching Uploaded Reference Design) */
-.schedule-top-capsule-bar {
+/* Centered Capsule Track & Interactive Click Callout */
+.schedule-capsule-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 15px auto 0 auto;
+}
+
+.schedule-click-hint {
     display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #68BD46;
+    background: rgba(104, 189, 70, 0.1);
+    border: 1px solid rgba(104, 189, 70, 0.35);
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(104, 189, 70, 0.12);
+}
+
+.hint-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #68BD46;
+    box-shadow: 0 0 10px #68BD46, 0 0 18px #68BD46;
+    animation: hintDotPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes hintDotPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.4); opacity: 1; }
+}
+
+.hint-arrow-anim {
+    animation: bounceDown 1.5s infinite;
+}
+
+@keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+
+.schedule-top-capsule-bar {
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin: 10px auto 0 auto;
     background: #f1f5f9;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border-radius: 50px;
     border: 1.5px solid #e2e8f0;
-    box-shadow: 0 6px 20px rgba(0, 43, 94, 0.05);
+    box-shadow: 0 8px 25px rgba(0, 43, 94, 0.06);
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .schedule-pill-btn {
-    background: transparent;
-    border: none;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
     color: #002b5e;
-    padding: 10px 24px;
+    padding: 10px 22px;
     border-radius: 40px;
     font-family: var(--font-heading);
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 8px;
+    box-shadow: 0 3px 10px rgba(0, 43, 94, 0.04);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .schedule-pill-btn:hover {
     color: #002b5e;
-    background: rgba(0, 43, 94, 0.06);
+    background: #ffffff;
+    border-color: #68BD46;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(104, 189, 70, 0.25);
 }
 
 .schedule-pill-btn.active {
     background: #002b5e !important;
     color: #ffffff !important;
-    box-shadow: 0 8px 22px rgba(0, 43, 94, 0.22) !important;
-}
-
-.attendee-pill {
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    color: #002b5e;
-    font-family: var(--font-heading);
-    font-size: 13.5px;
-    font-weight: 700;
-    padding: 8px 16px 8px 10px;
-    border-radius: 35px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    width: 100%;
-    justify-content: flex-start;
-}
-
-.pill-icon-circle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(104, 189, 70, 0.14);
-    color: #5ab947;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-}
-
-.attendee-pill span {
-    font-size: 13px;
-    line-height: 1.25;
-    color: #002b5e;
-    text-align: left;
-    font-weight: 700;
-}
-
-/* Sequential Synchronized Glow Effect when Flow Reaches each Card */
-.card-1 { animation: cardGlowFlow 3.5s infinite linear 0.5s; }
-.card-2 { animation: cardGlowFlow 3.5s infinite linear 1.2s; }
-.card-3 { animation: cardGlowFlow 3.5s infinite linear 1.9s; }
-.card-4 { animation: cardGlowFlow 3.5s infinite linear 2.6s; }
-.card-5 { animation: cardGlowFlow 3.5s infinite linear 3.3s; }
-
-@keyframes cardGlowFlow {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    15% {
-        transform: translateY(-5px);
-    }
-    30% {
-        transform: translateY(0);
-    }
-}
-
-.card-1 .attendee-pill { animation: pillGlowFlow 3.5s infinite linear 0.5s; }
-.card-2 .attendee-pill { animation: pillGlowFlow 3.5s infinite linear 1.2s; }
-.card-3 .attendee-pill { animation: pillGlowFlow 3.5s infinite linear 1.9s; }
-.card-4 .attendee-pill { animation: pillGlowFlow 3.5s infinite linear 2.6s; }
-.card-5 .attendee-pill { animation: pillGlowFlow 3.5s infinite linear 3.3s; }
-
-@keyframes pillGlowFlow {
-    0%, 100% {
-        border-color: #e2e8f0;
-        box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
-        background: #ffffff;
-    }
-    15% {
-        border-color: #68BD46;
-        box-shadow: 0 0 25px rgba(104, 189, 70, 0.7), 0 8px 25px rgba(0, 43, 94, 0.12);
-        background: #ffffff;
-    }
-    30% {
-        border-color: #e2e8f0;
-        box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
-        background: #ffffff;
-    }
+    border-color: #002b5e !important;
+    box-shadow: 0 10px 25px rgba(0, 43, 94, 0.28) !important;
 }
 
 .pill-icon-box {
-    width: 36px;
-    height: 36px;
-    border-radius: 12px;
-    background: #ffffff;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: #f1f5f9;
     color: #002b5e;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 14px;
     flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+}
+
+.schedule-pill-btn:hover .pill-icon-box {
+    background: #68BD46;
+    color: #ffffff;
 }
 
 .schedule-pill-btn.active .pill-icon-box {
@@ -8273,14 +8249,33 @@ img {
     color: #ffffff !important;
 }
 
-/* Schedule Popup Modal Overlay */
+.pill-open-icon {
+    font-size: 11px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    margin-left: 2px;
+}
+
+.schedule-pill-btn:hover .pill-open-icon {
+    opacity: 1;
+    color: #68BD46;
+    transform: scale(1.15);
+}
+
+.schedule-pill-btn.active .pill-open-icon {
+    opacity: 1;
+    color: #68BD46;
+}
+
+
+/* Schedule Popup Modal Overlay (Bulletproof Scroll Container) */
 .schedule-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 43, 94, 0.65);
+    background: rgba(0, 43, 94, 0.75);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 99999;
@@ -8291,7 +8286,7 @@ img {
     pointer-events: none;
     transition: opacity 0.35s ease, visibility 0.35s ease;
     visibility: hidden;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 .schedule-modal-overlay.active {
@@ -8306,18 +8301,55 @@ img {
     max-width: 900px;
     max-height: 85vh;
     border-radius: 32px;
-    padding: 45px 35px 35px 35px;
     position: relative;
-    overflow-y: auto;
     box-shadow: 0 25px 60px rgba(0, 43, 94, 0.3);
     transform: scale(0.92) translateY(20px);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     border: 1.5px solid #e2e8f0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    pointer-events: auto;
 }
 
 .schedule-modal-overlay.active .schedule-modal-container {
     transform: scale(1) translateY(0);
 }
+
+.schedule-modal-body {
+    padding: 45px 35px 35px 35px;
+    overflow-y: auto !important;
+    max-height: calc(85vh - 20px);
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+}
+
+.schedule-modal-body::-webkit-scrollbar {
+    width: 8px;
+    display: block !important;
+}
+
+.schedule-modal-body::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.schedule-modal-body::-webkit-scrollbar-thumb {
+    background: #002b5e;
+    border-radius: 10px;
+}
+
+.schedule-modal-body::-webkit-scrollbar-thumb:hover {
+    background: #68BD46;
+}
+
+body.modal-open {
+    overflow: hidden !important;
+}
+
+
 
 .schedule-modal-close {
     position: absolute;

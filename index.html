@@ -612,24 +612,33 @@
                 <p class="schedule-lead">Click any topic below to explore keynote sessions, agenda, awards, and panel discussions.</p>
             </div>
 
-            <!-- Top Horizontal Pill Capsule Filter Bar (Matching Uploaded Design) -->
-            <div class="schedule-top-capsule-bar reveal-element reveal-fade-up">
-                <button class="schedule-pill-btn active" data-tab="all-topics">
-                    <span class="pill-icon-box"><i class="fas fa-layer-group"></i></span>
-                    <span class="pill-text">ALL TOPICS</span>
-                </button>
-                <button class="schedule-pill-btn" data-tab="agenda">
-                    <span class="pill-icon-box"><i class="fas fa-calendar-check"></i></span>
-                    <span class="pill-text">AGENDA</span>
-                </button>
-                <button class="schedule-pill-btn" data-tab="awards">
-                    <span class="pill-icon-box"><i class="fas fa-trophy"></i></span>
-                    <span class="pill-text">AWARDS</span>
-                </button>
-                <button class="schedule-pill-btn" data-tab="panel-discussion">
-                    <span class="pill-icon-box"><i class="fas fa-comments"></i></span>
-                    <span class="pill-text">PANEL DISCUSSION</span>
-                </button>
+            <!-- Centered Top Horizontal Pill Capsule Filter Bar & Click Callout -->
+            <div class="schedule-capsule-wrapper reveal-element reveal-fade-up">
+                <!-- Eye-Catching Click Prompt Badge -->
+                <div class="schedule-click-hint">
+                    <span class="hint-pulse-dot"></span>
+                    <i class="fas fa-hand-pointer"></i>
+                    <span>CLICK ANY TAB BELOW TO VIEW DETAILS</span>
+                    <i class="fas fa-chevron-down hint-arrow-anim"></i>
+                </div>
+
+                <div class="schedule-top-capsule-bar">
+                    <button class="schedule-pill-btn" data-tab="agenda">
+                        <span class="pill-icon-box"><i class="fas fa-calendar-check"></i></span>
+                        <span class="pill-text">AGENDA</span>
+                        <span class="pill-open-icon"><i class="fas fa-up-right-from-square"></i></span>
+                    </button>
+                    <button class="schedule-pill-btn active" data-tab="awards">
+                        <span class="pill-icon-box"><i class="fas fa-trophy"></i></span>
+                        <span class="pill-text">AWARDS</span>
+                        <span class="pill-open-icon"><i class="fas fa-up-right-from-square"></i></span>
+                    </button>
+                    <button class="schedule-pill-btn" data-tab="panel-discussion">
+                        <span class="pill-icon-box"><i class="fas fa-comments"></i></span>
+                        <span class="pill-text">PANEL DISCUSSION</span>
+                        <span class="pill-open-icon"><i class="fas fa-up-right-from-square"></i></span>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -643,76 +652,7 @@
             
             <div class="schedule-modal-body">
                 
-                <!-- Pane 1: ALL TOPICS -->
-                <div class="schedule-pane active" id="pane-all-topics">
-                    <div class="pane-header-box">
-                        <h3 class="pane-title"><i class="fas fa-layer-group"></i> All Topics &amp; Event Program</h3>
-                        <p class="pane-desc">A packed 1-day symposium featuring thought leadership, interactive panels, technology showcases, and industry awards recognition.</p>
-                    </div>
-
-                    <div class="schedule-cyber-timeline">
-                        <div class="timeline-laser-track"></div>
-
-                        <!-- Item 1 -->
-                        <div class="timeline-cyber-item">
-                            <div class="timeline-node-dot"></div>
-                            <div class="timeline-time-badge">
-                                <i class="fas fa-clock"></i>
-                                <span>09:00 AM - 10:00 AM</span>
-                            </div>
-                            <div class="timeline-card-content">
-                                <span class="timeline-tag green-tag">Registration &amp; Welcome</span>
-                                <h4 class="timeline-card-title">Delegate Check-in &amp; Networking Coffee</h4>
-                                <p class="timeline-card-desc">Welcome reception and gathering of education leaders, technology pioneers, and distinguished guests.</p>
-                            </div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="timeline-cyber-item">
-                            <div class="timeline-node-dot"></div>
-                            <div class="timeline-time-badge">
-                                <i class="fas fa-clock"></i>
-                                <span>10:00 AM - 11:30 AM</span>
-                            </div>
-                            <div class="timeline-card-content">
-                                <span class="timeline-tag cyan-tag">Panel Discussion</span>
-                                <h4 class="timeline-card-title">Navigating Cyber Risks in Next-Gen Education</h4>
-                                <p class="timeline-card-desc">Key stakeholders examining institutional vulnerabilities, compliance frameworks, and proactive defense strategies.</p>
-                            </div>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="timeline-cyber-item">
-                            <div class="timeline-node-dot"></div>
-                            <div class="timeline-time-badge">
-                                <i class="fas fa-clock"></i>
-                                <span>11:30 AM - 01:00 PM</span>
-                            </div>
-                            <div class="timeline-card-content">
-                                <span class="timeline-tag green-tag">Live Demonstration</span>
-                                <h4 class="timeline-card-title">MDR Experience Zone Showcase</h4>
-                                <p class="timeline-card-desc">Live demonstration of AI-driven threat mitigation and real-world defense scenarios powered by Sangfor MDR.</p>
-                            </div>
-                        </div>
-
-                        <!-- Item 4 -->
-                        <div class="timeline-cyber-item">
-                            <div class="timeline-node-dot"></div>
-                            <div class="timeline-time-badge">
-                                <i class="fas fa-clock"></i>
-                                <span>02:00 PM - 03:30 PM</span>
-                            </div>
-                            <div class="timeline-card-content">
-                                <span class="timeline-tag gold-tag">Awards Ceremony</span>
-                                <h4 class="timeline-card-title">10 Industry Awards Ceremony</h4>
-                                <p class="timeline-card-desc">Recognising institutions, leaders, and technology champions setting high standards across education safety.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Pane 2: AGENDA (Coming Soon) -->
+                <!-- Pane 1: AGENDA (Coming Soon) -->
                 <div class="schedule-pane" id="pane-agenda">
                     <div class="coming-soon-teaser-card">
                         <div class="coming-soon-badge-ring">
@@ -724,8 +664,8 @@
                     </div>
                 </div>
 
-                <!-- Pane 3: AWARDS -->
-                <div class="schedule-pane" id="pane-awards">
+                <!-- Pane 2: AWARDS (Active Default with 10 Industry Awards Content & CTA) -->
+                <div class="schedule-pane active" id="pane-awards">
                     <div class="awards-pane-wrapper">
                         <div class="awards-hero-card">
                             <div class="awards-trophy-ring">
@@ -740,29 +680,10 @@
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
-
-                        <div class="awards-grid-preview">
-                            <div class="award-preview-card">
-                                <i class="fas fa-medal"></i>
-                                <span>Cyber Resilience Institution of the Year</span>
-                            </div>
-                            <div class="award-preview-card">
-                                <i class="fas fa-award"></i>
-                                <span>Education Security Leader Excellence</span>
-                            </div>
-                            <div class="award-preview-card">
-                                <i class="fas fa-shield-cat"></i>
-                                <span>Best AI Security Implementation</span>
-                            </div>
-                            <div class="award-preview-card">
-                                <i class="fas fa-star"></i>
-                                <span>Digital Innovation in Education</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Pane 4: PANEL DISCUSSION (Coming Soon) -->
+                <!-- Pane 3: PANEL DISCUSSION (Coming Soon) -->
                 <div class="schedule-pane" id="pane-panel-discussion">
                     <div class="coming-soon-teaser-card">
                         <div class="coming-soon-badge-ring">

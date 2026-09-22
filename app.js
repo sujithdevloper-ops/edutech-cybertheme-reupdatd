@@ -1556,9 +1556,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Open Popup Modal Overlay
                 if (scheduleModalOverlay) {
+                    const modalBody = scheduleModalOverlay.querySelector('.schedule-modal-body');
+                    if (modalBody) modalBody.scrollTop = 0;
                     scheduleModalOverlay.classList.add('active');
                     scheduleModalOverlay.setAttribute('aria-hidden', 'false');
-                    document.body.style.overflow = 'hidden'; // Lock background scroll
+                    document.body.classList.add('modal-open');
                 }
             });
         });
@@ -1569,7 +1571,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scheduleModalOverlay) {
             scheduleModalOverlay.classList.remove('active');
             scheduleModalOverlay.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = ''; // Restore background scroll
+            document.body.classList.remove('modal-open');
         }
     }
 
@@ -1584,6 +1586,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Modal Mouse Wheel Scroll Guarantee
+    const scheduleModalBody = document.querySelector('.schedule-modal-body');
+    if (scheduleModalBody) {
+        scheduleModalBody.addEventListener('wheel', (e) => {
+            const scrollTop = scheduleModalBody.scrollTop;
+            const scrollHeight = scheduleModalBody.scrollHeight;
+            const height = scheduleModalBody.clientHeight;
+            const delta = e.deltaY;
+            const up = delta < 0;
+
+            if (scrollHeight > height) {
+                const isAtTop = scrollTop === 0 && up;
+                const isAtBottom = Math.ceil(scrollTop + height) >= scrollHeight && !up;
+
+                if (!isAtTop && !isAtBottom) {
+                    scheduleModalBody.scrollTop += delta;
+                    e.preventDefault();
+                }
+            }
+        }, { passive: false });
+    }
+
+
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && scheduleModalOverlay && scheduleModalOverlay.classList.contains('active')) {
