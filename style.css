@@ -338,7 +338,7 @@ img {
     left: 45px;
     transform: none;
     width: calc(100% - 90px);
-    max-width: 480px;
+    max-width: 384px;
     background: rgba(0, 18, 42, 0.55);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -347,7 +347,7 @@ img {
         0 20px 50px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
     border-radius: 24px;
-    padding: 26px 30px;
+    padding: 20px 24px;
     text-align: left;
     z-index: 5;
     box-sizing: border-box;
@@ -395,7 +395,7 @@ img {
     color: #ffffff;
     letter-spacing: -0.5px;
     line-height: 1.35;
-    margin: 0 0 16px 0;
+    margin: 0;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
@@ -410,9 +410,9 @@ img {
     position: absolute;
     bottom: 45px;
     right: 45px;
-    width: 360px;
+    width: 380px;
     max-width: calc(100% - 90px);
-    z-index: 5;
+    z-index: 10;
 }
 
 .hero-glass-detail-item {
@@ -435,15 +435,15 @@ img {
 }
 
 .date-highlight-capsule {
-    border-color: rgba(104, 189, 70, 0.55) !important;
-    background: rgba(104, 189, 70, 0.14) !important;
-    box-shadow: 0 4px 20px rgba(104, 189, 70, 0.2);
+    border: 2px solid #68BD46 !important;
+    background: rgba(3, 22, 14, 0.92) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(104, 189, 70, 0.4) !important;
 }
 
 .location-highlight-capsule {
-    border-color: rgba(245, 158, 11, 0.55) !important;
-    background: rgba(245, 158, 11, 0.14) !important;
-    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+    border: 2px solid #f59e0b !important;
+    background: rgba(28, 18, 3, 0.92) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(245, 158, 11, 0.4) !important;
 }
 
 .detail-icon-wrap {
@@ -486,7 +486,7 @@ img {
 
 .detail-val {
     font-family: var(--font-heading);
-    font-size: 14.5px;
+    font-size: 15.5px;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.2px;
@@ -498,9 +498,10 @@ img {
     color: #cbd5e1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .hero-glass-box {
-        bottom: 20px;
+        bottom: 175px;
+        max-width: 100%;
         left: 20px;
         width: calc(100% - 40px);
         padding: 18px 20px;
@@ -508,8 +509,16 @@ img {
     .hero-glass-title {
         font-size: 17px;
     }
+    .hero-glass-details-right {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+        max-width: calc(100% - 40px);
+        gap: 8px;
+    }
     .hero-glass-detail-item {
-        font-size: 12px;
+        padding: 10px 14px;
     }
 }
 
@@ -2198,7 +2207,7 @@ img {
 }
 
 .attendee-pill-card:hover .attendee-pill i {
-    color: #5ab947;
+    color: #ffffff;
     transform: scale(1.2);
 }
 
@@ -7233,7 +7242,7 @@ img {
 
 .attendee-pill {
     background: #ffffff;
-    border: 2px solid rgba(104, 189, 70, 0.45);
+    border: 2px solid rgba(245, 158, 11, 0.55);
     color: #002b5e;
     font-family: var(--font-heading);
     font-size: 13.5px;
@@ -7243,7 +7252,7 @@ img {
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 8px 24px rgba(0, 43, 94, 0.08), 0 0 16px rgba(104, 189, 70, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 43, 94, 0.08), 0 0 20px rgba(245, 158, 11, 0.3);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     width: 100%;
     justify-content: flex-start;
@@ -7253,8 +7262,8 @@ img {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(104, 189, 70, 0.2);
-    color: #5ab947;
+    background: rgba(245, 158, 11, 0.16);
+    color: #d97706;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7304,18 +7313,18 @@ img {
 
 @keyframes pillGlowFlow {
     0%, 100% {
-        border-color: rgba(104, 189, 70, 0.45);
-        box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
+        border-color: rgba(245, 158, 11, 0.55);
+        box-shadow: 0 8px 24px rgba(0, 43, 94, 0.08), 0 0 16px rgba(245, 158, 11, 0.25);
         background: #ffffff;
     }
     15% {
-        border-color: #68BD46;
-        box-shadow: 0 0 25px rgba(104, 189, 70, 0.7), 0 8px 25px rgba(0, 43, 94, 0.12);
+        border-color: #f59e0b;
+        box-shadow: 0 0 32px rgba(245, 158, 11, 0.9), 0 0 16px rgba(104, 189, 70, 0.45), 0 10px 25px rgba(0, 43, 94, 0.15);
         background: #ffffff;
     }
     30% {
-        border-color: rgba(104, 189, 70, 0.45);
-        box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
+        border-color: rgba(245, 158, 11, 0.55);
+        box-shadow: 0 8px 24px rgba(0, 43, 94, 0.08), 0 0 16px rgba(245, 158, 11, 0.25);
         background: #ffffff;
     }
 }
@@ -7340,9 +7349,9 @@ img {
 
 .attendee-pill-card:hover .attendee-pill {
     background: #002b5e !important;
-    border-color: #002b5e !important;
-    transform: translateY(-4px) !important;
-    box-shadow: 0 10px 25px rgba(0, 43, 94, 0.2) !important;
+    border-color: #f59e0b !important;
+    transform: translateY(-5px) scale(1.03) !important;
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.75), 0 14px 30px rgba(0, 43, 94, 0.4) !important;
 }
 
 .attendee-pill-card:hover .attendee-pill span {
@@ -7350,8 +7359,14 @@ img {
 }
 
 .attendee-pill-card:hover .pill-icon-circle {
-    background: #68BD46 !important;
-    color: #ffffff !important;
+    background: #f59e0b !important;
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.9) !important;
+    color: #002b5e !important;
+}
+
+.attendee-pill-card:hover .pill-icon-circle i,
+.attendee-pill-card:hover .attendee-pill i {
+    color: #002b5e !important;
 }
 
 
@@ -8202,7 +8217,7 @@ img {
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    text-transform: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -8254,6 +8269,8 @@ img {
 .schedule-pill-btn.active .pill-icon-box i {
     color: #ffffff !important;
 }
+
+
 
 .pill-open-icon {
     font-size: 11px;
