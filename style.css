@@ -403,29 +403,35 @@ img {
     color: #5ab947;
 }
 
-.hero-glass-details {
+.hero-glass-details-right {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-top: 1.5px solid rgba(255, 255, 255, 0.15);
-    padding-top: 16px;
-    margin-top: 8px;
-    width: 100%;
+    gap: 12px;
+    position: absolute;
+    bottom: 45px;
+    right: 45px;
+    width: 360px;
+    max-width: calc(100% - 90px);
+    z-index: 5;
 }
 
 .hero-glass-detail-item {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: rgba(2, 20, 42, 0.65);
+    gap: 16px;
+    background: rgba(4, 16, 32, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1.5px solid rgba(255, 255, 255, 0.15);
-    padding: 10px 16px;
-    border-radius: 14px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
 }
 
 .hero-glass-detail-item:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
 }
 
 .date-highlight-capsule {
@@ -441,13 +447,13 @@ img {
 }
 
 .detail-icon-wrap {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 17px;
     flex-shrink: 0;
 }
 
@@ -5119,9 +5125,9 @@ img {
 }
 
 .speakers-coming-soon {
-    font-size: 15px;
-    color: #94a3b8;
-    font-weight: 500;
+    font-size: 18px;
+    color: #d97706;
+    font-weight: 700;
     margin: 0;
     display: flex;
     align-items: center;
@@ -5129,7 +5135,7 @@ img {
 }
 
 .speakers-coming-soon i {
-    color: #5ab947;
+    color: #d97706;
 }
 
 @media (max-width: 1024px) {
@@ -7201,7 +7207,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 1050px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 10px;
     gap: 12px;
@@ -7212,7 +7218,7 @@ img {
     flex-direction: column;
     align-items: center;
     flex: 1;
-    max-width: 200px;
+    max-width: 235px;
 }
 
 .pill-connector-dot {
@@ -7227,42 +7233,42 @@ img {
 
 .attendee-pill {
     background: #ffffff;
-    border: 1.5px solid #e2e8f0;
+    border: 2px solid rgba(104, 189, 70, 0.45);
     color: #002b5e;
     font-family: var(--font-heading);
     font-size: 13.5px;
     font-weight: 700;
-    padding: 8px 16px 8px 10px;
-    border-radius: 35px;
+    padding: 12px 18px 12px 12px;
+    border-radius: 40px;
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
+    box-shadow: 0 8px 24px rgba(0, 43, 94, 0.08), 0 0 16px rgba(104, 189, 70, 0.18);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     width: 100%;
     justify-content: flex-start;
 }
 
 .pill-icon-circle {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: rgba(104, 189, 70, 0.14);
+    background: rgba(104, 189, 70, 0.2);
     color: #5ab947;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 18px;
     flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
 .attendee-pill span {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.25;
     color: #002b5e;
     text-align: left;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 /* Sequential Synchronized Glow Effect when Flow Reaches each Card */
@@ -7298,7 +7304,7 @@ img {
 
 @keyframes pillGlowFlow {
     0%, 100% {
-        border-color: #e2e8f0;
+        border-color: rgba(104, 189, 70, 0.45);
         box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
         background: #ffffff;
     }
@@ -7308,7 +7314,7 @@ img {
         background: #ffffff;
     }
     30% {
-        border-color: #e2e8f0;
+        border-color: rgba(104, 189, 70, 0.45);
         box-shadow: 0 6px 18px rgba(0, 43, 94, 0.05);
         background: #ffffff;
     }
