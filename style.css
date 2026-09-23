@@ -4538,32 +4538,43 @@ img {
 
 /* Inline Submenu Styles */
 .sub-menu-inline {
-    display: flex;
-    gap: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-15px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    align-items: center;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 12px 35px rgba(0, 43, 94, 0.18);
+    z-index: 1000;
+    min-width: 140px;
+    gap: 4px;
+
+
+
+
+
 }
 
 .sub-menu-inline.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
+    display: flex;
+    animation: subMenuPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
 }
 
 .sub-menu-inline-item {
-    background: rgba(11, 19, 43, 0.6);
-    border: 1px solid rgba(104, 189, 70, 0.2);
-    border-radius: 20px;
-    padding: 6px 14px;
-    color: #ffffff;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 8px 14px;
+    color: #002b5e;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-heading);
     font-size: 13px;
-    font-weight: 600;
-    backdrop-filter: blur(8px);
+    font-weight: 700;
+    text-align: left;
     transition: all 0.3s ease;
 }
 
@@ -8474,30 +8485,223 @@ body.modal-open {
     margin: 0;
 }
 
+@media (max-width: 991px) {
+    .custom-header {
+        padding: 12px 16px;
+    }
+    .header-inner {
+        padding: 8px 16px;
+    }
+    .header-logo-img {
+        height: 38px;
+        max-width: 160px;
+    }
+    .menu-pill-btn {
+        padding: 4px 14px 4px 4px;
+        font-size: 12px;
+    }
+    .cta-capsule {
+        padding: 4px 16px 4px 4px;
+        font-size: 12px;
+    }
+    .hero-glass-box {
+        bottom: 160px;
+        left: 20px;
+        width: calc(100% - 40px);
+        max-width: 100%;
+        padding: 18px 20px;
+    }
+    .hero-glass-title {
+        font-size: 17px;
+    }
+    .hero-glass-details-right {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+        max-width: calc(100% - 40px);
+        gap: 8px;
+    }
+    .hero-glass-detail-item {
+        padding: 10px 14px;
+    }
+    .attendee-flow-lines-wrapper {
+        display: none !important;
+    }
+    .pill-connector-dot {
+        display: none !important;
+    }
+}
+
 @media (max-width: 768px) {
+    .custom-header {
+        padding: 10px 12px;
+    }
+    .header-inner {
+        padding: 6px 12px;
+    }
+    .header-logo-img {
+        height: 34px;
+        max-width: 130px;
+    }
+    .menu-pill-btn {
+        padding: 3px 10px 3px 3px;
+        font-size: 11.5px;
+    }
+    .plus-circle {
+        width: 22px;
+        height: 22px;
+        font-size: 9px;
+    }
+    .cta-capsule {
+        padding: 3px 12px 3px 3px;
+        font-size: 11.5px;
+        gap: 6px;
+    }
+    .cta-icon-circle {
+        width: 22px;
+        height: 22px;
+        font-size: 9px;
+    }
     .attendee-pills-grid {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 12px;
     }
     .attendee-pill-card {
         max-width: 100%;
-        flex: 1 1 calc(50% - 15px);
-    }
-    .attendee-flow-lines-wrapper {
-        display: none;
+        flex: 1 1 calc(50% - 12px);
+        min-width: 180px;
     }
     .schedule-top-capsule-bar {
         border-radius: 30px;
-        padding: 6px;
+        padding: 6px 8px;
+        gap: 8px;
+        justify-content: center;
     }
     .schedule-pill-btn {
-        padding: 8px 16px;
+        padding: 8px 14px;
         font-size: 12px;
     }
+    .schedule-modal-overlay {
+        padding: 14px;
+    }
     .schedule-modal-container {
-        padding: 35px 20px 20px 20px;
-        border-radius: 24px;
+        padding: 0;
+        border-radius: 22px;
+        max-height: 88vh;
+        width: 100%;
+    }
+    .schedule-modal-body {
+        padding: 40px 18px 20px 18px;
+        max-height: calc(88vh - 10px);
+    }
+    .schedule-modal-close {
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-glass-box {
+        bottom: 142px;
+        left: 14px;
+        width: calc(100% - 28px);
+        padding: 14px 16px;
+        border-radius: 18px;
+    }
+    .hero-glass-badge {
+        font-size: 8.5px;
+        padding: 3px 10px;
+        margin-bottom: 8px;
+    }
+    .hero-glass-title {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+    .hero-glass-details-right {
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        width: calc(100% - 28px);
+        max-width: calc(100% - 28px);
+        gap: 6px;
+    }
+    .hero-glass-detail-item {
+        padding: 8px 12px;
+        border-radius: 14px;
+        gap: 10px;
+    }
+    .detail-icon-wrap {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+    .detail-label {
+        font-size: 8.5px;
+        letter-spacing: 1px;
+    }
+    .detail-val {
+        font-size: 13px;
+    }
+    .detail-val .venue-sub {
+        font-size: 11px;
+    }
+    .attendee-pill-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .attendee-pill {
+        padding: 10px 16px;
+    }
+    .exp-composite-wrapper {
+        height: 300px;
+        max-width: 100%;
+    }
+    .exp-main-circle-frame {
+        width: 250px;
+        height: 250px;
+        max-width: 80vw;
+        max-height: 80vw;
+    }
+    .exp-green-arch-ring {
+        width: 280px;
+        height: 280px;
+        max-width: 88vw;
+        max-height: 88vw;
+    }
+    .exp-secondary-circle-frame {
+        width: 120px;
+        height: 120px;
+    }
+    .awards-hero-card {
+        padding: 24px 16px !important;
+    }
+    .awards-main-title {
+        font-size: 20px !important;
+    }
+    .awards-main-desc {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .header-logo-img {
+        max-width: 110px;
+        height: 28px;
+    }
+    .cta-text {
+        display: none;
+    }
+    .cta-capsule {
+        padding: 3px 6px;
+    }
+    .hero-glass-title {
+        font-size: 13.5px;
     }
 }
 
