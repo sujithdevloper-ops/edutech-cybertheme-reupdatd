@@ -179,15 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Warp Section Request Invitation CTA trigger
-    const warpRequestBtn = document.getElementById('warpRequestBtn');
-    if (warpRequestBtn) {
-        warpRequestBtn.addEventListener('click', () => {
-            const reqBtn = document.getElementById('requestInvitationBtn');
-            if (reqBtn) reqBtn.click();
-        });
-    }
-
     // 6. Interactive 3D Cyber-Grid Space Tunnel Canvas (Volumetric Sci-Fi Video Parallax)
     const warpCanvas = document.getElementById('warpCanvas');
     if (warpCanvas) {
@@ -1616,6 +1607,22 @@ document.addEventListener('DOMContentLoaded', () => {
             closeScheduleModal();
         }
     });
+
+    // Menu Agenda Click Handler
+    const menuAgendaLink = document.getElementById('menuAgendaLink');
+    if (menuAgendaLink) {
+        menuAgendaLink.addEventListener('click', (e) => {
+            const scheduleSec = document.getElementById('scheduleSection');
+            if (scheduleSec) {
+                e.preventDefault();
+                scheduleSec.scrollIntoView({ behavior: 'smooth' });
+                const agendaPill = document.querySelector('.schedule-pill-btn[data-tab="agenda"]');
+                if (agendaPill) {
+                    setTimeout(() => agendaPill.click(), 400);
+                }
+            }
+        });
+    }
 
     // View Award Categories CTA Handler
     const viewAwardCategoriesBtn = document.getElementById('viewAwardCategoriesBtn');

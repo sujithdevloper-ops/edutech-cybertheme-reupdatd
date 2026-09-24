@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Event Registration - Ed-Tech Cybersecurity Symposium & Awards 2026">
+    <title>Event Registration | Ed-Tech Cybersecurity Symposium & Awards 2026</title>
+    <!-- FontAwesome for Premium Tech Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet from Index -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Registration Page Specific Styles */
+        body {
+            background-color: #f4f6f9;
+            color: var(--color-text-main, #002b5e);
+            overflow-x: hidden;
+            height: auto;
+            min-height: 100vh;
+        }
+
+        /* 70% Viewport Height Clean Banner Section */
+        .reg-hero-banner {
+            position: relative;
+            height: 70vh;
+            min-height: 460px;
+            max-height: 620px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 40px 40px;
+            box-sizing: border-box;
+            background-color: #02050a;
+        }
+
+        .reg-hero-banner .hero-video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .reg-hero-banner .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-video-overlay-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg, 
+                rgba(0, 18, 42, 0.4) 0%, 
+                rgba(0, 18, 42, 0.15) 45%, 
+                rgba(0, 18, 42, 0.6) 80%,
+                #f4f6f9 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .reg-hero-banner-content {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .reg-hero-banner .hero-glass-details-right {
+            position: relative;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Single Unified Registration Form Container */
+        .reg-body-wrapper {
+            background-color: #f4f6f9;
+            padding: 0 20px 90px;
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+        }
+
+        .reg-content-container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        /* The Unified Single Form Sheet */
+        .unified-form-sheet {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0, 43, 94, 0.07);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .unified-form-sheet::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        }
+
+        /* 1. Form Header Block */
+        .sheet-header-block {
+            padding: 40px 44px 30px;
+            border-bottom: 1px solid var(--color-border);
+            background: #ffffff;
+        }
+
+        .sheet-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(104, 189, 70, 0.12);
+            color: #2e6e14;
+            border: 1px solid rgba(104, 189, 70, 0.35);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: var(--radius-full);
+            margin-bottom: 14px;
+        }
+
+        .sheet-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1.25;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .sheet-subtitle {
+            font-family: var(--font-heading);
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 14px;
+        }
+
+        .sheet-welcome-text {
+            color: var(--color-text-muted);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .sheet-organizer-strip {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.86rem;
+            color: var(--color-text-muted);
+            padding-top: 14px;
+            border-top: 1px solid #f1f5f9;
+            flex-wrap: wrap;
+        }
+
+        .sheet-organizer-strip strong {
+            color: var(--color-primary);
+        }
+
+        /* 2. Guidelines Flat Panel */
+        .sheet-guidelines-panel {
+            background: #f8fafc;
+            border-left: 4px solid var(--color-secondary);
+            border-bottom: 1px solid var(--color-border);
+            padding: 22px 44px;
+        }
+
+        .sheet-guidelines-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .sheet-guidelines-title i {
+            color: var(--color-secondary);
+        }
+
+        .sheet-guidelines-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-bottom: 10px;
+        }
+
+        .sheet-guidelines-list li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--color-text-muted);
+            font-size: 0.91rem;
+            line-height: 1.5;
+        }
+
+        .sheet-guidelines-list li::before {
+            content: "•";
+            position: absolute;
+            left: 4px;
+            color: var(--color-secondary);
+            font-weight: 800;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .sheet-guidelines-closing {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #3b8a1c;
+        }
+
+        /* 3. Form Inner Sections */
+        .sheet-form-body {
+            padding: 36px 44px 44px;
+        }
+
+        .form-section-divider {
+            margin-bottom: 34px;
+        }
+
+        .form-section-divider:last-of-type {
+            margin-bottom: 24px;
+        }
+
+        .section-heading-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1.5px solid #f1f5f9;
+        }
+
+        .section-heading-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        .section-heading-title i {
+            color: var(--color-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* Status Pills */
+        .tag-pill {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+        }
+
+        .tag-required {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fca5a5;
+        }
+
+        .tag-optional {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tag-primary {
+            background: rgba(104, 189, 70, 0.12);
+            color: #2e6e14;
+            border: 1px solid rgba(104, 189, 70, 0.35);
+        }
+
+        /* Form Grid & Inputs */
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px 22px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .form-label .req {
+            color: #dc2626;
+            font-weight: 800;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 0.92rem;
+            pointer-events: none;
+            transition: color 0.2s ease;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            background: #f8fafc;
+            border: 1.5px solid #dbe2ea;
+            border-radius: var(--radius-sm);
+            color: var(--color-primary);
+            font-size: 0.94rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .form-control::placeholder {
+            color: #a0aec0;
+            font-weight: 400;
+        }
+
+        .form-control:focus {
+            border-color: var(--color-secondary);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(104, 189, 70, 0.18);
+        }
+
+        .form-control:focus + i {
+            color: var(--color-secondary);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%235e7290'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 15px;
+            cursor: pointer;
+        }
+
+        select.form-control option {
+            background-color: #ffffff;
+            color: var(--color-primary);
+        }
+
+        /* Additional Guests Sub-section */
+        .guests-prompt-strip {
+            background: #f1f8ee;
+            border: 1px dashed rgba(104, 189, 70, 0.5);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .guests-prompt-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #2e6e14;
+            font-size: 0.93rem;
+            font-weight: 700;
+        }
+
+        .guests-prompt-left i {
+            font-size: 1.15rem;
+            color: var(--color-secondary);
+        }
+
+        .guests-toggle-group {
+            display: inline-flex;
+            background: #ffffff;
+            border: 1px solid rgba(104, 189, 70, 0.35);
+            border-radius: var(--radius-full);
+            padding: 3px;
+            gap: 4px;
+        }
+
+        .toggle-option {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .toggle-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .toggle-pill {
+            display: block;
+            padding: 5px 16px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            border-radius: var(--radius-full);
+            transition: all 0.2s ease;
+        }
+
+        .toggle-option input:checked + .toggle-pill {
+            background: var(--color-secondary);
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(104, 189, 70, 0.3);
+        }
+
+        .guest-item-card {
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            transition: all 0.25s ease;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .guest-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .guest-card-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .guest-card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 0.98rem;
+        }
+
+        .guest-fields-sub {
+            font-size: 0.76rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+        }
+
+        .guest-remove-btn {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #dc2626;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .guest-remove-btn:hover {
+            background: #ef4444;
+            color: #ffffff;
+        }
+
+        .add-guest-btn-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-add-guest {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(104, 189, 70, 0.08);
+            color: #2e6e14;
+            border: 1.5px dashed var(--color-secondary);
+            padding: 10px 24px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-add-guest:hover {
+            background: var(--color-secondary);
+            color: #ffffff;
+            border-style: solid;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(104, 189, 70, 0.3);
+        }
+
+        /* Submit Section */
+        .sheet-submit-block {
+            margin-top: 36px;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-submit-main {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 440px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #68BD46 0%, #4da02f 100%);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(104, 189, 70, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .btn-submit-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(104, 189, 70, 0.45);
+            background: linear-gradient(135deg, #74cb51 0%, #56b036 100%);
+        }
+
+        .security-footer-note {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--color-text-muted);
+            text-align: center;
+        }
+
+        .security-footer-note i {
+            color: var(--color-secondary);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .reg-body-wrapper {
+                padding: 0 12px 60px;
+                margin-top: -30px;
+            }
+            .sheet-header-block,
+            .sheet-guidelines-panel,
+            .sheet-form-body {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Success Confirmation Screen */
+        .success-overlay {
+            display: none;
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 48px 36px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 43, 94, 0.08);
+            animation: fadeIn 0.35s ease-out;
+        }
+
+        .success-overlay.active {
+            display: block;
+        }
+
+        .success-icon-badge {
+            width: 76px;
+            height: 76px;
+            background: #f1f8ee;
+            border: 2px solid var(--color-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--color-secondary);
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 16px rgba(104, 189, 70, 0.2);
+        }
+
+        .success-title {
+            font-family: var(--font-heading);
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .success-desc {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            max-width: 580px;
+            margin: 0 auto 26px;
+            line-height: 1.6;
+        }
+
+        .success-summary-box {
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 22px 26px;
+            max-width: 540px;
+            margin: 0 auto 28px;
+            text-align: left;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.92rem;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-row .label {
+            color: var(--color-text-muted);
+            font-weight: 500;
+        }
+
+        .summary-row .val {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .success-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-return-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            background: var(--color-primary);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            transition: all 0.25s ease;
+        }
+
+        .btn-return-home:hover {
+            background: #001f44;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Header Navigation (Identical to Home Page) -->
+    <header class="custom-header">
+        <div class="header-inner">
+            <!-- Left Header: Logo & Capsule Menu -->
+            <div class="header-left">
+                <a href="index.html" class="summit-logo">
+                    <img src="images/Ed-Tech Cybersecurity Logo.svg" alt="Ed-Tech Cybersecurity" class="header-logo-img">
+                </a>
+                
+                <!-- Pill-Shaped Active Capsule Menu -->
+                <div class="menu-wrapper">
+                    <button class="menu-pill-btn" id="menuToggle">
+                        <span class="plus-circle"><i class="fas fa-plus"></i></span>
+                        <span class="menu-text">Menu</span>
+                    </button>
+                    <!-- Submenu items inline -->
+                    <div class="sub-menu-inline" id="subMenuDropdown">
+                        <a href="index.html#scheduleSection" class="sub-menu-inline-item">Agenda</a>
+                        <button type="button" class="sub-menu-inline-item gallery-popup-btn" id="galleryBtn">Gallery</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Header: Minimalism Action Capsule -->
+            <div class="header-right">
+                <a href="index.html" class="cta-capsule">
+                    <span class="cta-icon-circle"><i class="fas fa-arrow-left"></i></span>
+                    <span class="cta-text">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Banner (70% Viewport Height) -->
+    <section class="reg-hero-banner" id="heroBanner">
+        <div class="hero-video-wrapper">
+            <img src="images/Option 8.jpg.jpeg" alt="Ed-Tech Cybersecurity Summit 2026" class="hero-bg-img">
+            <div class="hero-video-overlay-gradient"></div>
+        </div>
+
+        <div class="reg-hero-banner-content">
+            <!-- Event Details Right -->
+            <div class="hero-glass-details-right">
+                <div class="hero-glass-detail-item date-highlight-capsule">
+                    <div class="detail-icon-wrap green-icon"><i class="fas fa-calendar-days"></i></div>
+                    <div class="detail-text-wrap">
+                        <span class="detail-label">EVENT DATE</span>
+                        <span class="detail-val">30 October 2026</span>
+                    </div>
+                </div>
+                <div class="hero-glass-detail-item location-highlight-capsule">
+                    <div class="detail-icon-wrap gold-icon"><i class="fas fa-location-dot"></i></div>
+                    <div class="detail-text-wrap">
+                        <span class="detail-label">LOCATION &amp; VENUE</span>
+                        <span class="detail-val">Dubai <span class="venue-sub">| Venue to be announced</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Unified Single Form Container -->
+    <main class="reg-body-wrapper">
+        <div class="reg-content-container">
+            <div id="mainFormContainer">
+                
+                <div class="unified-form-sheet">
+                    <!-- Form Header Section -->
+                    <div class="sheet-header-block">
+                        <div class="sheet-badge">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>EVENT REGISTRATION</span>
+                        </div>
+                        <h1 class="sheet-title">Ed-Tech Cybersecurity Symposium &amp; Awards 2026</h1>
+                        <div class="sheet-subtitle">Welcome to the Registration Portal</div>
+                        <p class="sheet-welcome-text">
+                            Guardian One Technologies, in association with Sangfor, welcomes education leaders, technology professionals and cybersecurity stakeholders to the Ed-Tech Cybersecurity Symposium &amp; Awards 2026.
+                        </p>
+                        <div class="sheet-organizer-strip">
+                            <span>Organised by: <strong>Guardian One Technologies</strong></span>
+                            <span>•</span>
+                            <span>In Association with: <strong>Sangfor</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Guidelines Panel -->
+                    <div class="sheet-guidelines-panel">
+                        <div class="sheet-guidelines-title">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>Registration Guidelines</span>
+                        </div>
+                        <ul class="sheet-guidelines-list">
+                            <li>Please provide accurate details for each guest attending from your organisation.</li>
+                            <li>Guest 1 will serve as the primary contact for the registration.</li>
+                            <li>You may add additional guests from the same organisation using the guest registration fields.</li>
+                            <li>Our team will review your submission and share confirmation details with you.</li>
+                        </ul>
+                        <div class="sheet-guidelines-closing">
+                            We look forward to welcoming you to an engaging and insightful experience.
+                        </div>
+                    </div>
+
+                    <!-- Main Form Fields Section -->
+                    <form class="sheet-form-body" id="eventRegistrationForm" novalidate>
+                        
+                        <!-- Section 1: Organisation Details -->
+                        <div class="form-section-divider">
+                            <div class="section-heading-row">
+                                <div class="section-heading-title">
+                                    <i class="fas fa-building-columns"></i>
+                                    <span>Organisation Details</span>
+                                </div>
+                                <span class="tag-pill tag-required">Required</span>
+                            </div>
+
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="orgName">
+                                        Organisation / Institution Name <span class="req">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="orgName" name="orgName" class="form-control" placeholder="e.g. Higher Colleges of Technology" required>
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="orgCountry">
+                                        Country <span class="req">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <select id="orgCountry" name="orgCountry" class="form-control" required>
+                                            <option value="" disabled selected>Select Country</option>
+                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                            <option value="Saudi Arabia">Saudi Arabia</option>
+                                            <option value="Qatar">Qatar</option>
+                                            <option value="Oman">Oman</option>
+                                            <option value="Bahrain">Bahrain</option>
+                                            <option value="Kuwait">Kuwait</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="United States">United States</option>
+                                            <option value="India">India</option>
+                                            <option value="Singapore">Singapore</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Guest 1 — Primary Contact -->
+                        <div class="form-section-divider">
+                            <div class="section-heading-row">
+                                <div class="section-heading-title">
+                                    <i class="fas fa-user-shield"></i>
+                                    <span>Guest 1 — Primary Contact</span>
+                                </div>
+                                <span class="tag-pill tag-primary">Primary Contact *</span>
+                            </div>
+
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="guest1_name">
+                                        Full Name <span class="req">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="guest1_name" name="guest1_name" class="form-control" placeholder="e.g. Dr. Tariq Al-Mansoor" required>
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="guest1_email">
+                                        Official Email Address <span class="req">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="email" id="guest1_email" name="guest1_email" class="form-control" placeholder="e.g. t.mansoor@institution.edu" required>
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="guest1_phone">
+                                        Mobile Number <span class="req">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="tel" id="guest1_phone" name="guest1_phone" class="form-control" placeholder="e.g. +971 50 123 4567" required>
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="guest1_title">
+                                        Job Title / Designation <span class="req">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="guest1_title" name="guest1_title" class="form-control" placeholder="e.g. Chief Information Security Officer" required>
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Additional Guests -->
+                        <div class="form-section-divider">
+                            <div class="section-heading-row">
+                                <div class="section-heading-title">
+                                    <i class="fas fa-user-group"></i>
+                                    <span>Additional Guests</span>
+                                </div>
+                                <span class="tag-pill tag-optional">Optional</span>
+                            </div>
+
+                            <div class="guests-prompt-strip">
+                                <div class="guests-prompt-left">
+                                    <i class="fas fa-circle-question"></i>
+                                    <span>Would you like to register additional guests from the same organisation?</span>
+                                </div>
+                                <div class="guests-toggle-group">
+                                    <label class="toggle-option">
+                                        <input type="radio" name="hasAdditionalGuests" id="addGuestsYes" value="yes">
+                                        <span class="toggle-pill">Yes</span>
+                                    </label>
+                                    <label class="toggle-option">
+                                        <input type="radio" name="hasAdditionalGuests" id="addGuestsNo" value="no" checked>
+                                        <span class="toggle-pill">No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div id="additionalGuestsWrapper" style="display: none;">
+                                <div id="additionalGuestsContainer">
+                                    <!-- Guest 2 (Optional) -->
+                                    <div class="guest-item-card" id="guestCard2">
+                                        <div class="guest-card-top">
+                                            <div class="guest-card-title-group">
+                                                <div class="guest-card-title">
+                                                    <i class="fas fa-user-plus" style="color: var(--color-secondary);"></i>
+                                                    <span>Guest 2</span>
+                                                </div>
+                                                <span class="guest-fields-sub">Full Name · Email · Mobile · Designation</span>
+                                            </div>
+                                            <span class="tag-pill tag-optional">Optional</span>
+                                        </div>
+                                        <div class="form-grid-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest2_name">Full Name</label>
+                                                <div class="input-wrapper">
+                                                    <input type="text" id="guest2_name" name="guest2_name" class="form-control" placeholder="Full Name">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest2_email">Official Email Address</label>
+                                                <div class="input-wrapper">
+                                                    <input type="email" id="guest2_email" name="guest2_email" class="form-control" placeholder="Email Address">
+                                                    <i class="fas fa-envelope"></i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest2_phone">Mobile Number</label>
+                                                <div class="input-wrapper">
+                                                    <input type="tel" id="guest2_phone" name="guest2_phone" class="form-control" placeholder="Mobile Number">
+                                                    <i class="fas fa-phone"></i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest2_title">Job Title / Designation</label>
+                                                <div class="input-wrapper">
+                                                    <input type="text" id="guest2_title" name="guest2_title" class="form-control" placeholder="Designation">
+                                                    <i class="fas fa-briefcase"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Guest 3 (Optional) -->
+                                    <div class="guest-item-card" id="guestCard3">
+                                        <div class="guest-card-top">
+                                            <div class="guest-card-title-group">
+                                                <div class="guest-card-title">
+                                                    <i class="fas fa-user-plus" style="color: var(--color-secondary);"></i>
+                                                    <span>Guest 3</span>
+                                                </div>
+                                                <span class="guest-fields-sub">Full Name · Email · Mobile · Designation</span>
+                                            </div>
+                                            <span class="tag-pill tag-optional">Optional</span>
+                                        </div>
+                                        <div class="form-grid-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest3_name">Full Name</label>
+                                                <div class="input-wrapper">
+                                                    <input type="text" id="guest3_name" name="guest3_name" class="form-control" placeholder="Full Name">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest3_email">Official Email Address</label>
+                                                <div class="input-wrapper">
+                                                    <input type="email" id="guest3_email" name="guest3_email" class="form-control" placeholder="Email Address">
+                                                    <i class="fas fa-envelope"></i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest3_phone">Mobile Number</label>
+                                                <div class="input-wrapper">
+                                                    <input type="tel" id="guest3_phone" name="guest3_phone" class="form-control" placeholder="Mobile Number">
+                                                    <i class="fas fa-phone"></i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="guest3_title">Job Title / Designation</label>
+                                                <div class="input-wrapper">
+                                                    <input type="text" id="guest3_title" name="guest3_title" class="form-control" placeholder="Designation">
+                                                    <i class="fas fa-briefcase"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="add-guest-btn-wrap">
+                                    <button type="button" class="btn-add-guest" id="addGuestBtn">
+                                        <i class="fas fa-plus"></i>
+                                        <span>+ Add Another Guest</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Block -->
+                        <div class="sheet-submit-block">
+                            <button type="submit" class="btn-submit-main" id="submitBtn">
+                                <i class="fas fa-shield-halved"></i>
+                                <span>Submit Registration</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <div class="security-footer-note">
+                                <i class="fas fa-shield-check"></i>
+                                <span>Your data is confidential and protected in accordance with event compliance standards.</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 4. Success State Screen -->
+            <section class="success-overlay" id="successState">
+                <div class="success-icon-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 class="success-title">Registration Submitted!</h2>
+                <p class="success-desc">
+                    Thank you for registering. Our team will review your submission and share confirmation details with you soon.
+                </p>
+
+                <div class="success-summary-box">
+                    <div class="summary-row">
+                        <span class="label">Reference ID</span>
+                        <span class="val" id="summaryRef">ETC-2026-8492</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="label">Organisation</span>
+                        <span class="val" id="summaryOrg">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="label">Primary Contact</span>
+                        <span class="val" id="summaryName">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="label">Official Email</span>
+                        <span class="val" id="summaryEmail">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="label">Total Representatives</span>
+                        <span class="val" id="summaryGuests">-</span>
+                    </div>
+                </div>
+
+                <div class="success-actions">
+                    <a href="index.html" class="btn-return-home">
+                        <i class="fas fa-house"></i>
+                        <span>Return to Summit Home</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 4. Premium Dark Footer & Get in Touch Section with Waving Dotted Surface -->
+    <section class="contact-footer-section" id="contactSection">
+        <!-- 3D Waving Dotted Surface Canvas Background -->
+        <canvas id="wavingDotCanvas" class="waving-dot-canvas"></canvas>
+        
+        <div class="contact-container">
+            <div class="contact-grid">
+                
+                <!-- Left Column: Vision & Connections -->
+                <div class="contact-left-col">
+                    <span class="contact-tag">Stay Connected</span>
+                    <h2 class="contact-title">Connect With<br><span>Cybersecurity Leaders</span></h2>
+                    <p class="contact-desc">
+                        Explore insights, expert perspectives, and real-world strategies shaping the future of cybersecurity in education.
+                    </p>
+                </div>
+                
+                <!-- Right Column: Direct Engagement & CTA -->
+                <div class="contact-right-col">
+                    <span class="contact-tag">Don't Miss What's Next</span>
+                    <h3 class="contact-cta-title">Stay ahead. Get in touch with our team and be part of the cybersecurity movement in education.</h3>
+                    
+                    <div class="contact-actions-wrap">
+                        <a href="https://wa.me/971522352059" target="_blank" class="premium-contact-btn">
+                            <span>Get in Touch</span>
+                            <svg class="contact-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/guardianone/" target="_blank" class="linkedin-follow-btn">
+                            <i class="fab fa-linkedin linkedin-icon"></i>
+                            <span>Follow on LinkedIn for updates</span>
+                            <i class="fas fa-arrow-up-right-from-square" style="font-size: 11px; opacity: 0.85;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Menu Toggle (matching index.html behavior)
+            const menuToggle = document.getElementById('menuToggle');
+            const subMenuDropdown = document.getElementById('subMenuDropdown');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    const plusIcon = menuToggle.querySelector('.plus-circle i');
+                    if (plusIcon) {
+                        plusIcon.style.transition = 'transform 0.4s ease';
+                        if (plusIcon.style.transform === 'rotate(45deg)') {
+                            plusIcon.style.transform = 'rotate(0deg)';
+                            menuToggle.style.borderColor = 'var(--color-border)';
+                            if (subMenuDropdown) subMenuDropdown.classList.remove('show');
+                        } else {
+                            plusIcon.style.transform = 'rotate(45deg)';
+                            menuToggle.style.borderColor = 'var(--color-secondary)';
+                            if (subMenuDropdown) subMenuDropdown.classList.add('show');
+                        }
+                    }
+                });
+            }
+
+            // 2. Form & Guest Interaction Logic
+            const form = document.getElementById('eventRegistrationForm');
+            const mainFormContainer = document.getElementById('mainFormContainer');
+            const successState = document.getElementById('successState');
+            const addGuestBtn = document.getElementById('addGuestBtn');
+            const guestsContainer = document.getElementById('additionalGuestsContainer');
+            const guestsWrapper = document.getElementById('additionalGuestsWrapper');
+            const addGuestsYes = document.getElementById('addGuestsYes');
+            const addGuestsNo = document.getElementById('addGuestsNo');
+            
+            let guestCount = 3; // Starts with Guest 2 and Guest 3
+
+            // Toggle Additional Guests visibility
+            if (addGuestsYes && addGuestsNo && guestsWrapper) {
+                addGuestsYes.addEventListener('change', () => {
+                    if (addGuestsYes.checked) {
+                        guestsWrapper.style.display = 'block';
+                    }
+                });
+                addGuestsNo.addEventListener('change', () => {
+                    if (addGuestsNo.checked) {
+                        guestsWrapper.style.display = 'none';
+                    }
+                });
+            }
+
+            // Dynamic Guest Addition
+            addGuestBtn.addEventListener('click', () => {
+                guestCount++;
+                const newGuestId = guestCount;
+                const guestCard = document.createElement('div');
+                guestCard.className = 'guest-item-card';
+                guestCard.id = `guestCard${newGuestId}`;
+                
+                guestCard.innerHTML = `
+                    <div class="guest-card-top">
+                        <div class="guest-card-title-group">
+                            <div class="guest-card-title">
+                                <i class="fas fa-user-plus" style="color: var(--color-secondary);"></i>
+                                <span>Guest ${newGuestId}</span>
+                            </div>
+                            <span class="guest-fields-sub">Full Name · Email · Mobile · Designation</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="tag-pill tag-optional">Optional</span>
+                            <button type="button" class="guest-remove-btn" onclick="removeGuestCard('guestCard${newGuestId}')">
+                                <i class="fas fa-trash-can"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="guest${newGuestId}_name">Full Name</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="guest${newGuestId}_name" name="guest${newGuestId}_name" class="form-control" placeholder="Full Name">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="guest${newGuestId}_email">Official Email Address</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="guest${newGuestId}_email" name="guest${newGuestId}_email" class="form-control" placeholder="Email Address">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="guest${newGuestId}_phone">Mobile Number</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="guest${newGuestId}_phone" name="guest${newGuestId}_phone" class="form-control" placeholder="Mobile Number">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="guest${newGuestId}_title">Job Title / Designation</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="guest${newGuestId}_title" name="guest${newGuestId}_title" class="form-control" placeholder="Designation">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                guestsContainer.appendChild(guestCard);
+            });
+
+            // Form Submit Handler
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                const orgName = document.getElementById('orgName').value;
+                const guest1Name = document.getElementById('guest1_name').value;
+                const guest1Email = document.getElementById('guest1_email').value;
+                
+                // Count how many additional guests filled in at least a name
+                let totalGuests = 1;
+                if (addGuestsYes && addGuestsYes.checked) {
+                    for (let i = 2; i <= guestCount; i++) {
+                        const gName = document.getElementById(`guest${i}_name`);
+                        if (gName && gName.value.trim() !== '') {
+                            totalGuests++;
+                        }
+                    }
+                }
+
+                // Random Reference Code
+                const refId = 'ETC-2026-' + Math.floor(1000 + Math.random() * 9000);
+
+                // Populate Summary
+                document.getElementById('summaryRef').textContent = refId;
+                document.getElementById('summaryOrg').textContent = orgName;
+                document.getElementById('summaryName').textContent = guest1Name;
+                document.getElementById('summaryEmail').textContent = guest1Email;
+                document.getElementById('summaryGuests').textContent = totalGuests + ' representative' + (totalGuests > 1 ? 's' : '');
+
+                // Switch Views
+                mainFormContainer.style.display = 'none';
+                successState.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            // Gallery Coming Soon Modal Handler
+            const galleryBtn = document.getElementById('galleryBtn');
+            const galleryModal = document.getElementById('galleryModal');
+            const galleryBackdrop = document.getElementById('galleryModalBackdrop');
+            const galleryClose = document.getElementById('galleryModalClose');
+            const galleryOk = document.getElementById('galleryModalOk');
+
+            function openGalleryModal() {
+                galleryModal && galleryModal.classList.add('active');
+                galleryBackdrop && galleryBackdrop.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeGalleryModal() {
+                galleryModal && galleryModal.classList.remove('active');
+                galleryBackdrop && galleryBackdrop.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            galleryBtn && galleryBtn.addEventListener('click', openGalleryModal);
+            galleryClose && galleryClose.addEventListener('click', closeGalleryModal);
+            galleryOk && galleryOk.addEventListener('click', closeGalleryModal);
+            galleryBackdrop && galleryBackdrop.addEventListener('click', closeGalleryModal);
+
+            // 3D Waving Dotted Canvas Engine for Footer
+            const dotCanvas = document.getElementById('wavingDotCanvas');
+            const contactSection = document.getElementById('contactSection');
+            if (dotCanvas && contactSection) {
+                const ctx = dotCanvas.getContext('2d');
+                let animationFrameId;
+                let phase = 0;
+                let isVisible = false;
+
+                function resizeDotCanvas() {
+                    const rect = dotCanvas.getBoundingClientRect();
+                    const dpr = window.devicePixelRatio || 1;
+                    dotCanvas.width = rect.width * dpr;
+                    dotCanvas.height = rect.height * dpr;
+                    ctx.scale(dpr, dpr);
+                }
+                window.addEventListener('resize', resizeDotCanvas);
+                resizeDotCanvas();
+
+                const rows = 28;
+                const cols = 45;
+                const spacingX = 42;
+                const spacingZ = 36;
+                const focalLength = 340;
+                const rotX = 1.05;
+
+                function drawWavingSurface() {
+                    if (!isVisible) return;
+                    const rect = dotCanvas.getBoundingClientRect();
+                    const width = rect.width;
+                    const height = rect.height;
+                    const centerX = width / 2;
+                    const centerY = height / 2 - 20;
+
+                    ctx.clearRect(0, 0, width, height);
+                    phase += 0.015;
+                    const rotY = 0.06 * Math.sin(phase * 0.2);
+
+                    for (let r = 0; r < rows; r++) {
+                        for (let c = 0; c < cols; c++) {
+                            const x3d = (c - cols / 2) * spacingX;
+                            const z3d = (r - rows / 2) * spacingZ;
+                            const y3d = Math.sin(c * 0.15 + phase) * Math.cos(r * 0.12 + phase) * 36;
+                            const rotY1 = y3d * Math.cos(rotX) - z3d * Math.sin(rotX);
+                            const rotZ1 = y3d * Math.sin(rotX) + z3d * Math.cos(rotX);
+                            const rotX2 = x3d * Math.cos(rotY) - rotZ1 * Math.sin(rotY);
+                            const rotZ2 = x3d * Math.sin(rotY) + rotZ1 * Math.cos(rotY);
+
+                            const depth = rotZ2 + 380;
+                            if (depth > 0) {
+                                const scale = focalLength / depth;
+                                const screenX = centerX + rotX2 * scale;
+                                const screenY = centerY + rotY1 * scale + 140;
+
+                                if (screenX >= 0 && screenX <= width && screenY >= 0 && screenY <= height) {
+                                    const depthRatio = Math.max(0, Math.min(1, (depth - 150) / 700));
+                                    const alpha = (1 - depthRatio) * 0.65;
+                                    const size = (1 - depthRatio) * 2.0;
+
+                                    if (alpha > 0.02) {
+                                        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                                        ctx.beginPath();
+                                        ctx.arc(screenX, screenY, size, 0, Math.PI * 2);
+                                        ctx.fill();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    animationFrameId = requestAnimationFrame(drawWavingSurface);
+                }
+
+                const dotObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        isVisible = entry.isIntersecting;
+                        if (isVisible) {
+                            cancelAnimationFrame(animationFrameId);
+                            drawWavingSurface();
+                        } else {
+                            cancelAnimationFrame(animationFrameId);
+                        }
+                    });
+                }, { threshold: 0.05 });
+
+                dotObserver.observe(contactSection);
+            }
+        });
+
+        // Global Helper for dynamically added guest cards
+        function removeGuestCard(cardId) {
+            const card = document.getElementById(cardId);
+            if (card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(-8px)';
+                setTimeout(() => card.remove(), 250);
+            }
+        }
+    </script>
+
+    <!-- Gallery Coming Soon Modal -->
+    <div class="gallery-modal-backdrop" id="galleryModalBackdrop"></div>
+    <div class="gallery-coming-soon-modal" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle">
+        <button class="gallery-modal-close" id="galleryModalClose" aria-label="Close">&times;</button>
+        <div class="gallery-modal-icon">
+            <i class="fas fa-images"></i>
+        </div>
+        <span class="gallery-modal-tag">COMING SOON</span>
+        <h3 class="gallery-modal-title" id="galleryModalTitle">Event Gallery</h3>
+        <p class="gallery-modal-text">
+            Photos, session recordings, and event highlights from the <strong>Ed-Tech Cybersecurity Symposium &amp; Awards 2026</strong> will be published here after the event.
+        </p>
+        <button type="button" class="gallery-modal-btn" id="galleryModalOk">Got it</button>
+    </div>
+</body>
+</html>

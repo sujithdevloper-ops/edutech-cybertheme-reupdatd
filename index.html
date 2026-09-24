@@ -31,8 +31,8 @@
                     </button>
                     <!-- Submenu items inline -->
                     <div class="sub-menu-inline" id="subMenuDropdown">
-                        <a href="#agenda" class="sub-menu-inline-item">Agenda</a>
-                        <a href="#gallery" class="sub-menu-inline-item">Gallery</a>
+                        <a href="#scheduleSection" class="sub-menu-inline-item" id="menuAgendaLink">Agenda</a>
+                        <button type="button" class="sub-menu-inline-item gallery-popup-btn" id="galleryBtn">Gallery</button>
                     </div>
                 </div>
                 
@@ -43,10 +43,10 @@
 
             <!-- Right Header: Minimalism Action Capsule -->
             <div class="header-right">
-                <button class="cta-capsule" id="requestInvitationBtn">
+                <a href="register.html" class="cta-capsule" id="requestInvitationBtn">
                     <span class="cta-icon-circle"><i class="fas fa-shield-halved"></i></span>
-                    <span class="cta-text">Request Invitation</span>
-                </button>
+                    <span class="cta-text">Register Event</span>
+                </a>
             </div>
         </div>
     </header>
@@ -127,11 +127,11 @@
 
             <!-- Action CTAs -->
             <div class="warp-cta-group">
-                <button class="warp-cta-btn primary" id="warpRequestBtn">
+                <a href="register.html" class="warp-cta-btn primary" id="warpRequestBtn">
                     <i class="fas fa-shield-halved"></i>
-                    <span>REQUEST INVITATION</span>
+                    <span>REGISTER EVENT</span>
                     <i class="fas fa-arrow-right"></i>
-                </button>
+                </a>
                 <a href="#aboutSection" class="warp-cta-btn secondary">
                     <span>EXPLORE THE SUMMIT</span>
                     <i class="fas fa-arrow-right"></i>
@@ -869,9 +869,10 @@
                             <span>Get in Touch</span>
                             <svg class="contact-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
-                        <a href="https://www.linkedin.com/company/guardianone/" target="_blank" class="linkedin-follow-link">
+                        <a href="https://www.linkedin.com/company/guardianone/" target="_blank" class="linkedin-follow-btn">
+                            <i class="fab fa-linkedin linkedin-icon"></i>
                             <span>Follow on LinkedIn for updates</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <i class="fas fa-arrow-up-right-from-square" style="font-size: 11px; opacity: 0.85;"></i>
                         </a>
                     </div>
                 </div>
@@ -951,7 +952,6 @@
             }, 400);
         }
 
-        btn && btn.addEventListener('click', openModal);
         closeBtn && closeBtn.addEventListener('click', closeModal);
         backdrop && backdrop.addEventListener('click', closeModal);
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
@@ -962,8 +962,46 @@
             form.style.display = 'none';
             success.style.display = 'flex';
         });
+
+        // Gallery Coming Soon Modal Handler
+        const galleryBtn = document.getElementById('galleryBtn');
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryBackdrop = document.getElementById('galleryModalBackdrop');
+        const galleryClose = document.getElementById('galleryModalClose');
+        const galleryOk = document.getElementById('galleryModalOk');
+
+        function openGalleryModal() {
+            galleryModal && galleryModal.classList.add('active');
+            galleryBackdrop && galleryBackdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeGalleryModal() {
+            galleryModal && galleryModal.classList.remove('active');
+            galleryBackdrop && galleryBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        galleryBtn && galleryBtn.addEventListener('click', openGalleryModal);
+        galleryClose && galleryClose.addEventListener('click', closeGalleryModal);
+        galleryOk && galleryOk.addEventListener('click', closeGalleryModal);
+        galleryBackdrop && galleryBackdrop.addEventListener('click', closeGalleryModal);
     })();
     </script>
+
+    <!-- Gallery Coming Soon Modal -->
+    <div class="gallery-modal-backdrop" id="galleryModalBackdrop"></div>
+    <div class="gallery-coming-soon-modal" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle">
+        <button class="gallery-modal-close" id="galleryModalClose" aria-label="Close">&times;</button>
+        <div class="gallery-modal-icon">
+            <i class="fas fa-images"></i>
+        </div>
+        <span class="gallery-modal-tag">COMING SOON</span>
+        <h3 class="gallery-modal-title" id="galleryModalTitle">Event Gallery</h3>
+        <p class="gallery-modal-text">
+            Photos, session recordings, and event highlights from the <strong>Ed-Tech Cybersecurity Symposium &amp; Awards 2026</strong> will be published here after the event.
+        </p>
+        <button type="button" class="gallery-modal-btn" id="galleryModalOk">Got it</button>
+    </div>
 </body>
 </html>
 
