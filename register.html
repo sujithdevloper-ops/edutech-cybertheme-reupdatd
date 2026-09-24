@@ -16,11 +16,15 @@
     
     <style>
         /* Registration Page Specific Styles */
+        html, body {
+            overflow-x: clip !important;
+            height: auto !important;
+        }
+
         body {
+            font-family: var(--font-body, "Montserrat", sans-serif);
             background-color: #f4f6f9;
             color: var(--color-text-main, #002b5e);
-            overflow-x: hidden;
-            height: auto;
             min-height: 100vh;
         }
 
@@ -109,7 +113,6 @@
             border: 1px solid var(--color-border);
             border-radius: var(--radius-lg);
             box-shadow: 0 10px 40px rgba(0, 43, 94, 0.07);
-            overflow: hidden;
             position: relative;
         }
 
@@ -121,6 +124,9 @@
             width: 100%;
             height: 5px;
             background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
+            z-index: 2;
         }
 
         /* Form Header Block (Clean & Focused) */
@@ -128,6 +134,8 @@
             padding: 38px 44px 28px;
             border-bottom: 1px solid var(--color-border);
             background: #ffffff;
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
         }
 
         .sheet-badge {
@@ -175,22 +183,26 @@
         .sheet-form-column {
             padding: 36px 44px 44px;
             border-right: 1px solid var(--color-border);
+            border-bottom-left-radius: var(--radius-lg);
+            background: #ffffff;
         }
 
         /* Right Column: Sticky Guidelines Sidebar */
         .sheet-sidebar-column {
             padding: 36px 36px 44px;
             background: #f8fafc;
-            height: 100%;
-            box-sizing: border-box;
+            border-bottom-right-radius: var(--radius-lg);
+            position: relative;
         }
 
         .sidebar-sticky-box {
+            position: -webkit-sticky;
             position: sticky;
             top: 100px;
             display: flex;
             flex-direction: column;
             gap: 24px;
+            z-index: 10;
         }
 
         /* Guidelines Card Styling */
