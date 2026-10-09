@@ -1564,6 +1564,8 @@ document.addEventListener('DOMContentLoaded', () => {
             scheduleModalOverlay.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('modal-open');
         }
+        // Deselect all buttons when modal closes
+        schedulePillBtns.forEach(b => b.classList.remove('active'));
     }
 
     if (scheduleModalClose) {

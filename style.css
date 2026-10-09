@@ -8494,6 +8494,219 @@ body.modal-open {
     margin: 0;
 }
 
+/* Event Agenda List & Items Styling (Exact HTML matching) */
+#pane-agenda .coming-soon-teaser-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 28px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 43, 94, 0.04);
+}
+
+#pane-agenda .coming-soon-badge-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(104, 189, 70, 0.12);
+    border: 2px solid #68BD46;
+    color: #68BD46;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+    box-shadow: 0 0 20px rgba(104, 189, 70, 0.25);
+    transition: all 0.3s ease;
+}
+
+#pane-agenda .coming-soon-teaser-card:hover .coming-soon-badge-ring {
+    background: #68BD46;
+    color: #ffffff;
+    transform: scale(1.08) rotate(6deg);
+    box-shadow: 0 0 30px rgba(104, 189, 70, 0.45);
+}
+
+#pane-agenda .coming-soon-title {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 800;
+    color: #002b5e;
+    letter-spacing: 1px;
+    margin: 0 0 6px 0;
+}
+
+#pane-agenda .coming-soon-desc {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: #68BD46;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0 0 24px 0;
+}
+
+.event-agenda-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.agenda-item {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #002b5e;
+    border-radius: 16px;
+    padding: 16px 22px;
+    text-align: left;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 43, 94, 0.02);
+}
+
+.agenda-item:hover {
+    background: #ffffff;
+    border-left-color: #68BD46;
+    border-color: #68BD46;
+    transform: translateX(6px);
+    box-shadow: 0 8px 24px rgba(0, 43, 94, 0.08);
+}
+
+.agenda-time {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    color: #002b5e;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.agenda-title {
+    font-family: var(--font-heading);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: 0.3px;
+    line-height: 1.45;
+}
+
+.agenda-item:hover .agenda-time {
+    color: #68BD46;
+}
+
+.agenda-item:hover .agenda-title {
+    color: #002b5e;
+}
+
+/* Highlight specific milestone agenda items */
+.agenda-item:nth-child(6) {
+    border-left-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.04);
+}
+
+.agenda-item:nth-child(8) {
+    border-left-color: #68BD46;
+    background: rgba(104, 189, 70, 0.06);
+}
+
+.agenda-item:nth-child(8) .agenda-title {
+    font-weight: 800;
+    color: #002b5e;
+}
+
+.agenda-item:nth-child(9) {
+    border-left-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.agenda-item:nth-child(10) {
+    border-left-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.05);
+}
+
+@media (max-width: 640px) {
+    #pane-agenda .coming-soon-teaser-card {
+        padding: 24px 16px;
+    }
+    .agenda-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 14px 16px;
+    }
+    .agenda-time {
+        font-size: 13px;
+        color: #68BD46;
+    }
+    .agenda-title {
+        font-size: 14px;
+    }
+}
+.agenda-timeline-row.highlight-panel {
+    border-left: 4px solid #38bdf8;
+    background: rgba(56, 189, 248, 0.04);
+}
+
+.agenda-timeline-row.highlight-panel .agenda-divider-col {
+    background: #38bdf8;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+}
+
+.agenda-timeline-row.highlight-launch {
+    border-left: 4px solid #68BD46;
+    background: rgba(104, 189, 70, 0.06);
+}
+
+.agenda-timeline-row.highlight-launch .agenda-title-col {
+    color: #002b5e;
+    font-weight: 800;
+}
+
+.agenda-timeline-row.highlight-awards {
+    border-left: 4px solid #f59e0b;
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.agenda-timeline-row.highlight-awards .agenda-divider-col {
+    background: #f59e0b;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+}
+
+.agenda-timeline-row.highlight-dinner {
+    border-left: 4px solid #8b5cf6;
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.agenda-timeline-row.highlight-dinner .agenda-divider-col {
+    background: #8b5cf6;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+}
+
+@media (max-width: 640px) {
+    .agenda-timeline-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 14px 16px;
+    }
+    .agenda-divider-col {
+        display: none;
+    }
+    .agenda-time-col {
+        font-size: 13px;
+        color: #68BD46;
+    }
+    .agenda-title-col {
+        font-size: 14px;
+    }
+    .official-agenda-card {
+        padding: 24px 16px;
+    }
+}
+
 @media (max-width: 991px) {
     .custom-header {
         padding: 12px 16px;
@@ -8537,8 +8750,31 @@ body.modal-open {
     .attendee-flow-lines-wrapper {
         display: none !important;
     }
+    .badge-node-dot {
+        display: none !important;
+    }
     .pill-connector-dot {
         display: none !important;
+    }
+    .attendee-badge-node {
+        margin: 25px auto 15px auto;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .badge-outer-ring {
+        padding: 6px 12px;
+        border-radius: 40px;
+        max-width: 95%;
+        box-shadow: 0 0 15px rgba(104, 189, 70, 0.2);
+    }
+    .attendee-badge {
+        font-size: 13.5px !important;
+        letter-spacing: 1.5px !important;
+        padding: 10px 22px !important;
+        border-radius: 30px !important;
+        white-space: normal;
+        display: inline-block;
     }
 }
 
@@ -8571,6 +8807,9 @@ body.modal-open {
         width: 22px;
         height: 22px;
         font-size: 9px;
+    }
+    .attendee-pills-wrapper {
+        margin-top: 25px;
     }
     .attendee-pills-grid {
         flex-wrap: wrap;
@@ -8660,12 +8899,49 @@ body.modal-open {
     .detail-val .venue-sub {
         font-size: 11px;
     }
+    .attendee-badge-node {
+        margin: 20px auto 16px auto;
+    }
+    .badge-outer-ring {
+        padding: 4px 8px;
+        border-radius: 30px;
+        max-width: 92%;
+    }
+    .attendee-badge {
+        font-size: 11.5px !important;
+        letter-spacing: 1px !important;
+        padding: 8px 16px !important;
+        border-radius: 25px !important;
+    }
+    .attendee-pills-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
     .attendee-pill-card {
         flex: 1 1 100%;
+        width: 100%;
         max-width: 100%;
     }
     .attendee-pill {
-        padding: 10px 16px;
+        padding: 8px 16px;
+        border-radius: 30px;
+        width: 100%;
+        gap: 12px;
+    }
+    .pill-icon-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+    .attendee-pill span {
+        font-size: 13px;
+        font-weight: 700;
     }
     .exp-composite-wrapper {
         height: 300px;

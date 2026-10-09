@@ -464,6 +464,52 @@
             color: var(--color-primary);
         }
 
+        /* Email Duplicate Status Indicator & Banner */
+        .email-status-spinner {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-secondary);
+            font-size: 0.95rem;
+            display: none;
+        }
+        .email-registered-banner {
+            display: none;
+            margin-top: 8px;
+            padding: 10px 14px;
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: var(--radius-sm);
+            color: #166534;
+            font-size: 0.84rem;
+            line-height: 1.45;
+            animation: bannerSlideIn 0.3s ease;
+        }
+        .email-registered-banner.show {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .email-registered-banner i {
+            color: #16a34a;
+            font-size: 1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .field-prefill-glow {
+            animation: prefillPulseAnim 1.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        @keyframes prefillPulseAnim {
+            0% { background-color: rgba(104, 189, 70, 0.28); border-color: var(--color-secondary); box-shadow: 0 0 0 4px rgba(104, 189, 70, 0.25); }
+            60% { background-color: rgba(104, 189, 70, 0.12); border-color: var(--color-secondary); }
+            100% { background-color: #f8fafc; border-color: #dbe2ea; box-shadow: none; }
+        }
+        @keyframes bannerSlideIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Additional Guests Sub-section */
         .guests-prompt-strip {
             background: #f1f8ee;
@@ -920,7 +966,7 @@
                                                 Organisation / Institution Name <span class="req">*</span>
                                             </label>
                                             <div class="input-wrapper">
-                                                <input type="text" id="orgName" name="orgName" class="form-control" placeholder="e.g. Higher Colleges of Technology" required>
+                                                <input type="text" id="orgName" name="orgName" class="form-control" required>
                                                 <i class="fas fa-building"></i>
                                             </div>
                                         </div>
@@ -948,16 +994,25 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Dynamic Custom Country Field when "Other" is selected -->
+                                    <div class="form-group" id="customCountryGroup" style="display: none; margin-top: 14px;">
+                                        <label class="form-label" for="customCountry">Please Specify Country <span class="req">*</span></label>
+                                        <div class="input-wrapper">
+                                            <input type="text" id="customCountry" name="customCountry" class="form-control">
+                                            <i class="fas fa-earth-americas"></i>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <!-- Section 2: Guest 1 — Primary Contact -->
+                                <!-- Section 2: Delegate 1 — Primary Contact -->
                                 <div class="form-section-divider">
                                     <div class="section-heading-row">
                                         <div class="section-heading-title">
                                             <i class="fas fa-user-shield"></i>
-                                            <span>Guest 1 — Primary Contact</span>
+                                            <span>Delegate 1 — Primary Contact</span>
                                         </div>
-                                        <span class="tag-pill tag-primary">Primary Contact *</span>
+                                        <span class="tag-pill tag-primary">Primary Delegate *</span>
                                     </div>
 
                                     <div class="form-grid-2">
@@ -966,7 +1021,7 @@
                                                 Full Name <span class="req">*</span>
                                             </label>
                                             <div class="input-wrapper">
-                                                <input type="text" id="guest1_name" name="guest1_name" class="form-control" placeholder="e.g. Dr. Tariq Al-Mansoor" required>
+                                                <input type="text" id="guest1_name" name="guest1_name" class="form-control" required>
                                                 <i class="fas fa-user"></i>
                                             </div>
                                         </div>
@@ -976,8 +1031,15 @@
                                                 Official Email Address <span class="req">*</span>
                                             </label>
                                             <div class="input-wrapper">
-                                                <input type="email" id="guest1_email" name="guest1_email" class="form-control" placeholder="e.g. t.mansoor@institution.edu" required>
+                                                <input type="email" id="guest1_email" name="guest1_email" class="form-control" required autocomplete="email">
                                                 <i class="fas fa-envelope"></i>
+                                                <span class="email-status-spinner" id="emailCheckSpinner"><i class="fas fa-circle-notch fa-spin"></i></span>
+                                            </div>
+                                            <div id="emailRegisteredBanner" class="email-registered-banner">
+                                                <i class="fas fa-circle-check"></i>
+                                                <div class="email-banner-content">
+                                                    <strong>Email already registered:</strong> <span id="emailBannerRef"></span> Details have been automatically prefilled below.
+                                                </div>
                                             </div>
                                         </div>
 
@@ -986,7 +1048,7 @@
                                                 Mobile Number <span class="req">*</span>
                                             </label>
                                             <div class="input-wrapper">
-                                                <input type="tel" id="guest1_phone" name="guest1_phone" class="form-control" placeholder="e.g. +971 50 123 4567" required>
+                                                <input type="tel" id="guest1_phone" name="guest1_phone" class="form-control" required>
                                                 <i class="fas fa-phone"></i>
                                             </div>
                                         </div>
@@ -996,19 +1058,19 @@
                                                 Job Title / Designation <span class="req">*</span>
                                             </label>
                                             <div class="input-wrapper">
-                                                <input type="text" id="guest1_title" name="guest1_title" class="form-control" placeholder="e.g. Chief Information Security Officer" required>
+                                                <input type="text" id="guest1_title" name="guest1_title" class="form-control" required>
                                                 <i class="fas fa-briefcase"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Section 3: Additional Guests -->
+                                <!-- Section 3: Additional Delegates -->
                                 <div class="form-section-divider">
                                     <div class="section-heading-row">
                                         <div class="section-heading-title">
                                             <i class="fas fa-user-group"></i>
-                                            <span>Additional Guests</span>
+                                            <span>Additional Delegates</span>
                                         </div>
                                         <span class="tag-pill tag-optional">Optional</span>
                                     </div>
@@ -1016,7 +1078,7 @@
                                     <div class="guests-prompt-strip">
                                         <div class="guests-prompt-left">
                                             <i class="fas fa-circle-question"></i>
-                                            <span>Would you like to register additional guests from the same organisation?</span>
+                                            <span>Would you like to register additional delegates?</span>
                                         </div>
                                         <div class="guests-toggle-group">
                                             <label class="toggle-option">
@@ -1032,13 +1094,13 @@
 
                                     <div id="additionalGuestsWrapper" style="display: none;">
                                         <div id="additionalGuestsContainer">
-                                            <!-- Guest 2 (Optional) -->
+                                            <!-- Delegate 2 (Optional) -->
                                             <div class="guest-item-card" id="guestCard2">
                                                 <div class="guest-card-top">
                                                     <div class="guest-card-title-group">
                                                         <div class="guest-card-title">
                                                             <i class="fas fa-user-plus" style="color: var(--color-secondary);"></i>
-                                                            <span>Guest 2</span>
+                                                            <span>Delegate 2</span>
                                                         </div>
                                                         <span class="guest-fields-sub">Full Name · Email · Mobile · Designation</span>
                                                     </div>
@@ -1048,73 +1110,43 @@
                                                     <div class="form-group">
                                                         <label class="form-label" for="guest2_name">Full Name</label>
                                                         <div class="input-wrapper">
-                                                            <input type="text" id="guest2_name" name="guest2_name" class="form-control" placeholder="Full Name">
+                                                            <input type="text" id="guest2_name" name="guest2_name" class="form-control">
                                                             <i class="fas fa-user"></i>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="form-label" for="guest2_email">Official Email Address</label>
                                                         <div class="input-wrapper">
-                                                            <input type="email" id="guest2_email" name="guest2_email" class="form-control" placeholder="Email Address">
+                                                            <input type="email" id="guest2_email" name="guest2_email" class="form-control" autocomplete="email">
                                                             <i class="fas fa-envelope"></i>
+                                                            <span class="email-status-spinner"><i class="fas fa-circle-notch fa-spin"></i></span>
+                                                        </div>
+                                                        <div class="email-registered-banner">
+                                                            <i class="fas fa-circle-check"></i>
+                                                            <div class="email-banner-content">
+                                                                <strong>Delegate already registered:</strong> <span class="email-banner-ref"></span> Details prefilled below.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="form-label" for="guest2_phone">Mobile Number</label>
                                                         <div class="input-wrapper">
-                                                            <input type="tel" id="guest2_phone" name="guest2_phone" class="form-control" placeholder="Mobile Number">
+                                                            <input type="tel" id="guest2_phone" name="guest2_phone" class="form-control">
                                                             <i class="fas fa-phone"></i>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="form-label" for="guest2_title">Job Title / Designation</label>
                                                         <div class="input-wrapper">
-                                                            <input type="text" id="guest2_title" name="guest2_title" class="form-control" placeholder="Designation">
+                                                            <input type="text" id="guest2_title" name="guest2_title" class="form-control">
                                                             <i class="fas fa-briefcase"></i>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Guest 3 (Optional) -->
-                                            <div class="guest-item-card" id="guestCard3">
-                                                <div class="guest-card-top">
-                                                    <div class="guest-card-title-group">
-                                                        <div class="guest-card-title">
-                                                            <i class="fas fa-user-plus" style="color: var(--color-secondary);"></i>
-                                                            <span>Guest 3</span>
-                                                        </div>
-                                                        <span class="guest-fields-sub">Full Name · Email · Mobile · Designation</span>
-                                                    </div>
-                                                    <span class="tag-pill tag-optional">Optional</span>
-                                                </div>
-                                                <div class="form-grid-2">
-                                                    <div class="form-group">
-                                                        <label class="form-label" for="guest3_name">Full Name</label>
+                                                    <div class="form-group" style="grid-column: 1 / -1;">
+                                                        <label class="form-label" for="guest2_org">Organisation / Institution <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 400;">(leave blank if same as primary)</span></label>
                                                         <div class="input-wrapper">
-                                                            <input type="text" id="guest3_name" name="guest3_name" class="form-control" placeholder="Full Name">
-                                                            <i class="fas fa-user"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label" for="guest3_email">Official Email Address</label>
-                                                        <div class="input-wrapper">
-                                                            <input type="email" id="guest3_email" name="guest3_email" class="form-control" placeholder="Email Address">
-                                                            <i class="fas fa-envelope"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label" for="guest3_phone">Mobile Number</label>
-                                                        <div class="input-wrapper">
-                                                            <input type="tel" id="guest3_phone" name="guest3_phone" class="form-control" placeholder="Mobile Number">
-                                                            <i class="fas fa-phone"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label" for="guest3_title">Job Title / Designation</label>
-                                                        <div class="input-wrapper">
-                                                            <input type="text" id="guest3_title" name="guest3_title" class="form-control" placeholder="Designation">
-                                                            <i class="fas fa-briefcase"></i>
+                                                            <input type="text" id="guest2_org" name="guest2_org" class="form-control">
+                                                            <i class="fas fa-building"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1124,7 +1156,7 @@
                                         <div class="add-guest-btn-wrap">
                                             <button type="button" class="btn-add-guest" id="addGuestBtn">
                                                 <i class="fas fa-plus"></i>
-                                                <span>+ Add Another Guest</span>
+                                                <span>+ Add Another Delegate</span>
                                             </button>
                                         </div>
                                     </div>
@@ -1289,6 +1321,188 @@
             
             let guestCount = 3; // Starts with Guest 2 and Guest 3
 
+            // Dynamic "Other" Custom Country Reveal
+            const countrySelect = document.getElementById('orgCountry');
+            const customCountryGroup = document.getElementById('customCountryGroup');
+            const customCountryInput = document.getElementById('customCountry');
+
+            if (countrySelect && customCountryGroup) {
+                countrySelect.addEventListener('change', function () {
+                    if (this.value === 'Other') {
+                        customCountryGroup.style.display = 'block';
+                        if (customCountryInput) customCountryInput.required = true;
+                    } else {
+                        customCountryGroup.style.display = 'none';
+                        if (customCountryInput) {
+                            customCountryInput.required = false;
+                            customCountryInput.value = '';
+                        }
+                    }
+                });
+            }
+
+            // Helper: Field pulse animation
+            function triggerFieldPulse(el) {
+                if (!el) return;
+                el.classList.remove('field-prefill-glow');
+                void el.offsetWidth; // force DOM reflow
+                el.classList.add('field-prefill-glow');
+            }
+
+            // Seeded Demo Registration Records for instant offline testing
+            const demoRegistrations = {
+                'sarah.watson@gemseducation.com': {
+                    ref_id: 'ETC-2026-1082',
+                    org_name: 'GEMS World Academy',
+                    country: 'United Arab Emirates',
+                    name: 'Dr. Sarah Watson',
+                    phone: '+971 50 123 4567',
+                    title: 'Head of Digital Infrastructure'
+                },
+                'admin@school.ae': {
+                    ref_id: 'ETC-2026-4489',
+                    org_name: 'Dubai International Academy',
+                    country: 'United Arab Emirates',
+                    name: 'Ahmed Al Mansoori',
+                    phone: '+971 55 987 6543',
+                    title: 'Director of Educational Technology'
+                },
+                'omar.khalil@adek.gov.ae': {
+                    ref_id: 'ETC-2026-7731',
+                    org_name: 'Abu Dhabi Department of Education',
+                    country: 'United Arab Emirates',
+                    name: 'Omar Khalil',
+                    phone: '+971 52 443 2190',
+                    title: 'Senior Cyber Risk Consultant'
+                },
+                'tariq.zayed@khda.gov.ae': {
+                    ref_id: 'ETC-2026-9214',
+                    org_name: 'KHDA Dubai',
+                    country: 'United Arab Emirates',
+                    name: 'Tariq Zayed',
+                    phone: '+971 56 312 8841',
+                    title: 'Head of Cyber Governance'
+                }
+            };
+
+            // Generic Email Verification & Auto-Prefill Controller (Primary & Delegates)
+            function setupEmailAutoLookup(inputEl, contextType, containerEl) {
+                if (!inputEl || !containerEl) return;
+
+                const inputWrapper = inputEl.closest('.input-wrapper');
+                const spinner = inputWrapper ? inputWrapper.querySelector('.email-status-spinner') : null;
+                const banner = containerEl.querySelector('.email-registered-banner');
+                const bannerRef = containerEl.querySelector('.email-banner-ref') || containerEl.querySelector('#emailBannerRef');
+
+                let debounceTimer = null;
+                let lastChecked = '';
+
+                function performLookup() {
+                    const emailVal = inputEl.value.trim().toLowerCase();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (!emailVal || !emailRegex.test(emailVal)) {
+                        if (banner) banner.classList.remove('show');
+                        if (spinner) spinner.style.display = 'none';
+                        return;
+                    }
+
+                    if (emailVal === lastChecked) {
+                        return;
+                    }
+
+                    if (spinner) spinner.style.display = 'block';
+
+                    setTimeout(() => {
+                        if (spinner) spinner.style.display = 'none';
+                        lastChecked = emailVal;
+
+                        let savedRecord = null;
+                        try {
+                            const localDb = JSON.parse(localStorage.getItem('summit_registrations') || '{}');
+                            savedRecord = localDb[emailVal] || demoRegistrations[emailVal];
+                        } catch (e) {
+                            savedRecord = demoRegistrations[emailVal];
+                        }
+
+                        if (savedRecord) {
+                            if (contextType === 'primary') {
+                                const orgInput = document.getElementById('orgName');
+                                const g1Name = document.getElementById('guest1_name');
+                                const g1Phone = document.getElementById('guest1_phone');
+                                const g1Title = document.getElementById('guest1_title');
+
+                                if (savedRecord.org_name && orgInput) { orgInput.value = savedRecord.org_name; triggerFieldPulse(orgInput); }
+                                if (savedRecord.name && g1Name) { g1Name.value = savedRecord.name; triggerFieldPulse(g1Name); }
+                                if (savedRecord.phone && g1Phone) { g1Phone.value = savedRecord.phone; triggerFieldPulse(g1Phone); }
+                                if (savedRecord.title && g1Title) { g1Title.value = savedRecord.title; triggerFieldPulse(g1Title); }
+
+                                if (savedRecord.country && countrySelect) {
+                                    let found = false;
+                                    for (let i = 0; i < countrySelect.options.length; i++) {
+                                        if (countrySelect.options[i].value.toLowerCase() === savedRecord.country.toLowerCase()) {
+                                            countrySelect.selectedIndex = i;
+                                            found = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!found) {
+                                        countrySelect.value = 'Other';
+                                        if (customCountryGroup && customCountryInput) {
+                                            customCountryGroup.style.display = 'block';
+                                            customCountryInput.required = true;
+                                            customCountryInput.value = savedRecord.country;
+                                            triggerFieldPulse(customCountryInput);
+                                        }
+                                    } else if (customCountryGroup) {
+                                        customCountryGroup.style.display = 'none';
+                                    }
+                                    triggerFieldPulse(countrySelect);
+                                }
+                            } else if (contextType === 'delegate') {
+                                const nameField = containerEl.querySelector('input[name*="name"]');
+                                const phoneField = containerEl.querySelector('input[name*="phone"]');
+                                const titleField = containerEl.querySelector('input[name*="title"]');
+                                const orgField = containerEl.querySelector('input[name*="org"]');
+
+                                if (savedRecord.name && nameField) { nameField.value = savedRecord.name; triggerFieldPulse(nameField); }
+                                if (savedRecord.phone && phoneField) { phoneField.value = savedRecord.phone; triggerFieldPulse(phoneField); }
+                                if (savedRecord.title && titleField) { titleField.value = savedRecord.title; triggerFieldPulse(titleField); }
+                                if (savedRecord.org_name && orgField && !orgField.value) { orgField.value = savedRecord.org_name; triggerFieldPulse(orgField); }
+                            }
+
+                            if (banner) {
+                                if (bannerRef) bannerRef.textContent = savedRecord.ref_id ? `[Ref: ${savedRecord.ref_id}]` : '';
+                                banner.classList.add('show');
+                            }
+                        } else {
+                            if (banner) banner.classList.remove('show');
+                        }
+                    }, 300);
+                }
+
+                inputEl.addEventListener('input', () => {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(performLookup, 400);
+                });
+                inputEl.addEventListener('blur', performLookup);
+                inputEl.addEventListener('change', performLookup);
+            }
+
+            // Initialize Delegate 1
+            const guest1EmailInput = document.getElementById('guest1_email');
+            const primaryContainer = guest1EmailInput ? guest1EmailInput.closest('.form-section-divider') : null;
+            if (guest1EmailInput && primaryContainer) {
+                setupEmailAutoLookup(guest1EmailInput, 'primary', primaryContainer);
+            }
+
+            // Initialize Delegate 2
+            const card2 = document.getElementById('guestCard2');
+            if (card2) {
+                const email2 = card2.querySelector('#guest2_email');
+                if (email2) setupEmailAutoLookup(email2, 'delegate', card2);
+            }
+
             // Toggle Additional Guests visibility
             if (addGuestsYes && addGuestsNo && guestsWrapper) {
                 addGuestsYes.addEventListener('change', () => {
@@ -1316,7 +1530,7 @@
                         <div class="guest-card-title-group">
                             <div class="guest-card-title">
                                 <i class="fas fa-user-plus" style="color: var(--color-secondary);"></i>
-                                <span>Guest ${newGuestId}</span>
+                                <span>Delegate ${newGuestId}</span>
                             </div>
                             <span class="guest-fields-sub">Full Name · Email · Mobile · Designation</span>
                         </div>
@@ -1331,34 +1545,54 @@
                         <div class="form-group">
                             <label class="form-label" for="guest${newGuestId}_name">Full Name</label>
                             <div class="input-wrapper">
-                                <input type="text" id="guest${newGuestId}_name" name="guest${newGuestId}_name" class="form-control" placeholder="Full Name">
+                                <input type="text" id="guest${newGuestId}_name" name="guest${newGuestId}_name" class="form-control">
                                 <i class="fas fa-user"></i>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="guest${newGuestId}_email">Official Email Address</label>
                             <div class="input-wrapper">
-                                <input type="email" id="guest${newGuestId}_email" name="guest${newGuestId}_email" class="form-control" placeholder="Email Address">
+                                <input type="email" id="guest${newGuestId}_email" name="guest${newGuestId}_email" class="form-control" autocomplete="email">
                                 <i class="fas fa-envelope"></i>
+                                <span class="email-status-spinner"><i class="fas fa-circle-notch fa-spin"></i></span>
+                            </div>
+                            <div class="email-registered-banner">
+                                <i class="fas fa-circle-check"></i>
+                                <div class="email-banner-content">
+                                    <strong>Delegate already registered:</strong> <span class="email-banner-ref"></span> Details prefilled below.
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="guest${newGuestId}_phone">Mobile Number</label>
                             <div class="input-wrapper">
-                                <input type="tel" id="guest${newGuestId}_phone" name="guest${newGuestId}_phone" class="form-control" placeholder="Mobile Number">
+                                <input type="tel" id="guest${newGuestId}_phone" name="guest${newGuestId}_phone" class="form-control">
                                 <i class="fas fa-phone"></i>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="guest${newGuestId}_title">Job Title / Designation</label>
                             <div class="input-wrapper">
-                                <input type="text" id="guest${newGuestId}_title" name="guest${newGuestId}_title" class="form-control" placeholder="Designation">
+                                <input type="text" id="guest${newGuestId}_title" name="guest${newGuestId}_title" class="form-control">
                                 <i class="fas fa-briefcase"></i>
+                            </div>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label class="form-label" for="guest${newGuestId}_org">Organisation / Institution <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 400;">(leave blank if same as primary)</span></label>
+                            <div class="input-wrapper">
+                                <input type="text" id="guest${newGuestId}_org" name="guest${newGuestId}_org" class="form-control">
+                                <i class="fas fa-building"></i>
                             </div>
                         </div>
                     </div>
                 `;
                 guestsContainer.appendChild(guestCard);
+
+                // Bind live email verification to new delegate card
+                const newEmailInput = guestCard.querySelector(`#guest${newGuestId}_email`);
+                if (newEmailInput) {
+                    setupEmailAutoLookup(newEmailInput, 'delegate', guestCard);
+                }
             });
 
             // Form Submit Handler
@@ -1371,10 +1605,57 @@
                 }
 
                 const orgName = document.getElementById('orgName').value;
+                const country = (countrySelect.value === 'Other' && customCountryInput && customCountryInput.value) ? customCountryInput.value : countrySelect.value;
                 const guest1Name = document.getElementById('guest1_name').value;
                 const guest1Email = document.getElementById('guest1_email').value;
+                const guest1Phone = document.getElementById('guest1_phone').value;
+                const guest1Title = document.getElementById('guest1_title').value;
                 
-                // Count how many additional guests filled in at least a name
+                // Random Reference Code
+                const refId = 'ETC-2026-' + Math.floor(1000 + Math.random() * 9000);
+
+                // Save Primary Delegate & Every Individual Additional Delegate into Local Database
+                try {
+                    const localDb = JSON.parse(localStorage.getItem('summit_registrations') || '{}');
+                    
+                    // 1. Primary Entry
+                    localDb[guest1Email.toLowerCase()] = {
+                        ref_id: refId,
+                        org_name: orgName,
+                        country: country,
+                        name: guest1Name,
+                        phone: guest1Phone,
+                        title: guest1Title
+                    };
+
+                    // 2. Additional Delegate Entries
+                    if (addGuestsYes && addGuestsYes.checked) {
+                        for (let i = 2; i <= guestCount; i++) {
+                            const gName = document.getElementById(`guest${i}_name`);
+                            const gEmail = document.getElementById(`guest${i}_email`);
+                            const gPhone = document.getElementById(`guest${i}_phone`);
+                            const gTitle = document.getElementById(`guest${i}_title`);
+                            const gOrg = document.getElementById(`guest${i}_org`);
+
+                            if (gEmail && gEmail.value.trim() !== '') {
+                                localDb[gEmail.value.trim().toLowerCase()] = {
+                                    ref_id: refId,
+                                    org_name: (gOrg && gOrg.value.trim()) ? gOrg.value.trim() : orgName,
+                                    country: country,
+                                    name: gName ? gName.value.trim() : '',
+                                    phone: gPhone ? gPhone.value.trim() : '',
+                                    title: gTitle ? gTitle.value.trim() : ''
+                                };
+                            }
+                        }
+                    }
+
+                    localStorage.setItem('summit_registrations', JSON.stringify(localDb));
+                } catch (e) {
+                    console.warn('LocalStorage save skipped');
+                }
+
+                // Count total valid delegates
                 let totalGuests = 1;
                 if (addGuestsYes && addGuestsYes.checked) {
                     for (let i = 2; i <= guestCount; i++) {
@@ -1385,15 +1666,12 @@
                     }
                 }
 
-                // Random Reference Code
-                const refId = 'ETC-2026-' + Math.floor(1000 + Math.random() * 9000);
-
                 // Populate Summary
                 document.getElementById('summaryRef').textContent = refId;
                 document.getElementById('summaryOrg').textContent = orgName;
                 document.getElementById('summaryName').textContent = guest1Name;
                 document.getElementById('summaryEmail').textContent = guest1Email;
-                document.getElementById('summaryGuests').textContent = totalGuests + ' representative' + (totalGuests > 1 ? 's' : '');
+                document.getElementById('summaryGuests').textContent = totalGuests + ' delegate' + (totalGuests > 1 ? 's' : '');
 
                 // Switch Views
                 mainFormContainer.style.display = 'none';
